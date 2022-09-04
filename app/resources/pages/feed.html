@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book-Temple</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <input type ="text" placeholder="Suche ein Buch">
+        <div class="icon-box">
+            <div class="fa fa-heart-o"></div>
+            <div class="fa fa-bell-o"></div>
+            <div class="fa fa-language"></div>
+            <div class="fa fa-sign-out"></div>
+        </div>
+    </header>
+
+    <div class="sidebar">
+        <div class="profile">
+            <div>
+                <div href="" class="fa fa-user"></div>
+                <span>Profil</span>
+            </div>
+            <button>:)</button>
+
+        </div>
+
+        <ul class="nav">
+
+            <li><a href="feed.html">
+                <i class="active"></i>
+                <i class="fa fa-bullhorn"></i>
+                <span>Feed</span>
+            </a></li>
+
+            <li><a href="request.html">
+                <i class="#"></i>
+                <i class="fa fa-envelope"></i>
+                <span>Anfragen</span>
+            </a></li>
+
+            <li><a href="profile.html">
+                <i class="#"></i>
+                <i class="fa fa-user"></i>
+                <span>Profil</span>
+            </a></li>
+
+            <li><a href="settings.html">
+                <i class="#"></i>
+                <i class="fa fa-gear"></i>
+                <span>Einstellungen</span>
+            </a></li>
+        </ul>
+    </div>
+
+    
+    <div class="main">
+        <div id="feed-window">
+            <div id="book-list">
+                <h2>Die meist gesuchten Bücher</h2>
+                <ol>
+                    <li class="book-entry">
+                        <a href="">Anne Frank: Tagebuch</a>
+                        <div style="background-image: url(https://m.media-amazon.com/images/I/61IavHElJOL._AC_SY450_.jpg)"></div>
+                    </li>
+                    <li class="book-entry">
+                        <a href="">Anne Frank: Tagebuch</a>
+                        <div style="background-image: url(https://m.media-amazon.com/images/I/61IavHElJOL._AC_SY450_.jpg)"></div>
+                    </li>
+                    <li class="book-entry">
+                        <a href="">Anne Frank: Tagebuch</a>
+                        <div style="background-image: url(https://m.media-amazon.com/images/I/61IavHElJOL._AC_SY450_.jpg)"></div>
+                    </li>
+                    <li class="book-entry">
+                        <a href="">Anne Frank: Tagebuch</a>
+                        <div style="background-image: url(https://m.media-amazon.com/images/I/61IavHElJOL._AC_SY450_.jpg)"></div>
+                    </li>
+                </ol>
+            </div>
+    
+            <div id="booklist-settings">
+                <h2>Sortieren nach...</h2>
+                <div class="button-box">
+                    <button>Alphabetisch</button>
+                    <button>Alt > Neu</button>
+                    <button>Neu > Alt</button>
+                    <button>Meist getauscht</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="../../src/index.js"></script>    
+</body>
+
+<template id="book-entry-template">
+    <ul class="book" book-data="">
+
+        <li class="search item">
+            <input type ="text" placeholder="Suche ein Buch">
+        </li>
+
+        <span class="container book-data">
+            <span class="main"></span>
+            <span class="additional">
+                <span class="book-title"></span>
+                <span class="author"></span>
+                <span class="fav-icon"><i class="fas fa-star"></i></span>
+            </span>
+        </span>
+        <span>
+            <span class="controls">
+                <span class="fav-icon">
+                    <i class="fas fa-star"></i></span>
+            </span>
+        </span>
+    </ul>
+</template>
+
+
+<div id="book-modal" class="modal">
+        <span class="close">&times;</span>
+        <h2>Folgende Benutzer bieten das Buch an:</h2>
+
+        <div id="user-list">
+            <ol>
+                <li class="user-entry"> 
+                    <i class="fa fa-user"></i>
+                    <a href="">UserABC</a>
+                </li>
+
+                <li class="user-entry"> 
+                    <i class="fa fa-user"></i>
+                    <a href="">UserABC</a>
+                </li>
+            </ol>
+        </div>
+</div>
+</html>

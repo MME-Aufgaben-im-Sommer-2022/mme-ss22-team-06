@@ -1,0 +1,52 @@
+
+.modal{
+    display: fixed;
+    position: fixed;
+    z-index: 1;
+    width: 78%;
+    height: 50%;
+    overflow: auto;
+    background: rgb(234, 234, 255);
+    background-color:rgb(234, 234, 255);
+    border: 5px;
+    border-radius: 5px;
+    align-items: baseline;
+    
+}
+
+#user-list{
+    background-repeat: no-repeat;
+    min-width: 25px;
+    max-width: 25px;
+    min-height: 25px;    
+}
+
+#user-list .user-entry div{
+    background-repeat: no-repeat;
+    background-size: 100%;
+    min-width: 25px;
+    max-width: 25px;
+    min-height: 25px; 
+}
+
+#user-list .user-entry a{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 5px;
+    left: 50%;
+}
+
+.close{
+    color:#aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
