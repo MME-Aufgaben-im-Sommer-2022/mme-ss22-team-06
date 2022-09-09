@@ -20,7 +20,7 @@ account.create('unique()', 'me@example.com', 'password', 'Jane Doe')
     console.log(error);
 });
 
-account.delete()
+account.delete();
 
 
 
