@@ -15,3 +15,10 @@ _Beschreiben Sie die zentralen Funktionen Ihrer Anwendung und deren Verwendung. 
 ## Team
 
 _Listen Sie tabelarisch alle Teammitglieder mit Name, E-Mail-Adresse und Foto auf. Halten Sie für jedes Mitglied kurz fest, welchen Teilbereich der Anwendung die jeweilige Person maßgeblich bearbeitet hat._
+
+
+| Name               | E-Mail-Adresse                          | Github-Nutzer| Foto   | Teilbereich der Anwendung |
+| ------------------ |:---------------------------------------:| ------------:|-------:| --------------------------|
+| Alisa Friedmann    | Alisa.Friedmann@stud.uni-regensburg.de  | alisa-fr     |        |                           |
+| Elisabeth Philipp  | Elisabeth.Philipp@stud.uni-regensburg.de| TrashCoon    |        |                           |
+| Lianna Aleksanyan  | Lianna.Aleksanyan@stud.uni-regensburg.de| liannaaleks  |        |                           |
