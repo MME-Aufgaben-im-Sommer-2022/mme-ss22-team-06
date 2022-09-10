@@ -1,9 +1,15 @@
+import feedView from "./view/feedView.js";
+
 
 function init() {
   console.log("### Starting MME Project ###"); // eslint-disable-line no-console
+  var feed = new feedView();
+  feed.openBookInformation();
+  feed.onFavButtonClicked();
+
 }
 
-const client = new Appwrite.Client(); // eslint-disable-line
+/*const client = new Appwrite.Client(); // eslint-disable-line
 
 client
   .setEndpoint('https://appwrite.software-engineering.education/v1') // Your Appwrite Endpoint
@@ -19,9 +25,6 @@ account.create('unique()', 'me@example.com', 'password', 'Jane Doe')
 }, error => {
     console.log(error);
 });
-
-account.delete()
-
-
+account.delete();*/
 
 init();

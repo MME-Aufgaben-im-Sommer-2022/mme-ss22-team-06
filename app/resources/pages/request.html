@@ -9,16 +9,14 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 
-
-
 <body>
     <header>
         <input type ="text" placeholder="Suche ein Buch">
-        <div class="icon-box">
-            <div class="fa fa-heart-o"></div>
-            <div class="fa fa-bell-o"></div>
-            <div class="fa fa-language"></div>
-            <div class="fa fa-sign-out"></div>
+        <div class="icons">
+            <a id="fav-list" class="fa fa-heart" href="favBookList.html"></a>
+            <div id="" class="fa fa-bell-o"></div>
+            <div id="language-btn" class="fa fa-language"></div>
+            <div id="log-out-btn"class="fa fa-sign-out"></div>
         </div>
     </header>
 
@@ -61,41 +59,25 @@
     </div>
 </div>
 
-    <div class="main ">
-        <h2>Verlauf</h2>
-        <div class="chat-window">
-            <div class="chat-message">
-                <div class="chat-text">
-                    <i class="fa fa-user"></i>
-                    <span>Dies ist eine Anfrage</span>
-                </div>
-                <div class="button-box">
-                    <button>X</button>
-                    <button>Y</button>
+<div class="main">
+             <h2>Verlauf</h2>
+            <div class="chat-window">
+               
+                <div class="chat-message">
+                    <div class="chat-text">
+                        <i class="fa fa-user"></i>
+                        <span>Dies ist eine Anfrage</span>
+                    </div>
+                    <div class="button-box">
+                        <button>X</button>
+                        <button>Y</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div id="profile-list">
-        <h2>Einstellungen</h2>
-        <ol>
-            <li class="profile-entry">
-                <a href="">Profil bearbeiten</a>
-            </li>
-            <li class="profile-entry">
-                <a href="">Passwort ändern</a>
-            </li>
-            <li class="profile-entry">
-                <a href="">Profil löschen</a>
-            </li>
-            <li class="profile-entry">
-                <a href="">AGB's</a>
-            </li>
-        </ol>
-    </div>
-
-    <script src="../../src/index.js"></script>    
+</div>
+    <script type="module" src="../../src/index.js"></script>    
 </body>
 
 </html>

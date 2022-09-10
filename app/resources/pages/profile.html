@@ -9,16 +9,14 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 
-
-
 <body>
     <header>
         <input type ="text" placeholder="Suche ein Buch">
-        <div class="icon-box">
-            <div class="fa fa-heart-o"></div>
-            <div class="fa fa-bell-o"></div>
-            <div class="fa fa-language"></div>
-            <div class="fa fa-sign-out"></div>
+        <div class="icons">
+            <a id="fav-list" class="fa fa-heart" href="favBookList.html"></a>
+            <div id="" class="fa fa-bell-o"></div>
+            <div id="language-btn" class="fa fa-language"></div>
+            <div id="log-out-btn"class="fa fa-sign-out"></div>
         </div>
     </header>
 
@@ -29,11 +27,9 @@
                 <span>Profil</span>
             </div>
             <button>:)</button>
-
         </div>
 
     <ul class="nav">
-
         <li><a href="feed.html">
             <i class="#"></i>
             <i class="fa fa-bullhorn"></i>
@@ -65,9 +61,9 @@
         <h2>Profil</h2>
 
         <div class="profile-list">
-            <ul>
+            <form action="profile.html"  method="get">
                 <li class="profile-entry">
-                    <img src="" alt="">
+                    <img src="" alt="Profile Image" class="profile-img">
                     <input type="file" name="" id="file" accept="image/*">
                     <label for="file">Profilbild ändern...</label>
                 </li>
@@ -81,7 +77,7 @@
                      <input type="number" name=""  placeholder="Alter"> 
                 </li>
                 <li class="profile-entry">
-                    <input type="text" name=""  placeholder="Land">
+                    <input type="email" name=""  placeholder="Email">
                 </li>
                 <li class="profile-entry">      
                     <input type="text" name=""  placeholder="Straße">
@@ -89,26 +85,21 @@
                     <input type="text" name=""  placeholder="Stadt">
                     <input type="text" name=""  placeholder="Land">
                 </li>
-            </ul>
+
+                <div class="btn-box">
+                    <button class="save-btn">Speichern</button>
+                    <button class="edit-btn">Bearbeiten</button>
+                </div>
+            </form>
         </div>
 
-
-
-        <div class="profile-box">
-         
-
-           
-            
-          
-            
-      
-            <button>Speichern</button>
-
+        <div class="lists">
+            <a class="fav-books" href="favBookList.html">Wunschliste</a>
+            <a class="owned-books" href="ownedBookList.html">Meine Bücher</a>
         </div>
     </div>
   
-
-    <script src="../../src/index.js"></script>    
+    <script type="module" src="../../src/index.js"></script>    
 </body>
 
 </html>

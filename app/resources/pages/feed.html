@@ -12,11 +12,11 @@
 <body>
     <header>
         <input type ="text" placeholder="Suche ein Buch">
-        <div class="icon-box">
-            <div class="fa fa-heart-o"></div>
-            <div class="fa fa-bell-o"></div>
-            <div class="fa fa-language"></div>
-            <div class="fa fa-sign-out"></div>
+        <div class="icons">
+            <a id="fav-list" class="fa fa-heart" href="favBookList.html"></a>
+            <div id="" class="fa fa-bell-o"></div>
+            <div id="language-btn" class="fa fa-language"></div>
+            <div id="log-out-btn"class="fa fa-sign-out"></div>
         </div>
     </header>
 
@@ -58,27 +58,26 @@
         </ul>
     </div>
 
-    
     <div class="main">
         <div id="feed-window">
             <div id="book-list">
                 <h2>Die meist gesuchten Bücher</h2>
                 <ol>
                     <li class="book-entry">
-                        <a href="">Anne Frank: Tagebuch</a>
-                        <div style="background-image: url(https://m.media-amazon.com/images/I/61IavHElJOL._AC_SY450_.jpg)"></div>
+                        <div href="">Anne Frank: Tagebuch</div>
+                        <button class="fa fa-heart-o"></button>
                     </li>
                     <li class="book-entry">
-                        <a href="">Anne Frank: Tagebuch</a>
-                        <div style="background-image: url(https://m.media-amazon.com/images/I/61IavHElJOL._AC_SY450_.jpg)"></div>
+                        <div href="">Anne Frank: Tagebuch</div>
+                        <button class="fa fa-heart-o"></button>
                     </li>
                     <li class="book-entry">
-                        <a href="">Anne Frank: Tagebuch</a>
-                        <div style="background-image: url(https://m.media-amazon.com/images/I/61IavHElJOL._AC_SY450_.jpg)"></div>
+                        <div href="">Anne Frank: Tagebuch</div>
+                        <button class="fa fa-heart-o"></button>
                     </li>
                     <li class="book-entry">
-                        <a href="">Anne Frank: Tagebuch</a>
-                        <div style="background-image: url(https://m.media-amazon.com/images/I/61IavHElJOL._AC_SY450_.jpg)"></div>
+                        <div>Anne Frank: Tagebuch</div>
+                        <button class="fa fa-heart-o"></button>
                     </li>
                 </ol>
             </div>
@@ -95,52 +94,38 @@
         </div>
     </div>
 
-
-
-    <script src="../../src/index.js"></script>    
+    <script type="module" src="../../src/index.js"></script>    
 </body>
 
 <template id="book-entry-template">
     <ul class="book" book-data="">
 
-        <li class="search item">
-            <input type ="text" placeholder="Suche ein Buch">
-        </li>
-
         <span class="container book-data">
-            <span class="main"></span>
-            <span class="additional">
-                <span class="book-title"></span>
-                <span class="author"></span>
-                <span class="fav-icon"><i class="fas fa-star"></i></span>
-            </span>
-        </span>
-        <span>
-            <span class="controls">
-                <span class="fav-icon">
-                    <i class="fas fa-star"></i></span>
+            <span class="author"></span>
+            <span class="title"></span>
+            <span class="fav-icon">
+                <i class="fa fa-heart-o"></i>
             </span>
         </span>
     </ul>
 </template>
-
 
 <div id="book-modal" class="modal">
         <span class="close">&times;</span>
         <h2>Folgende Benutzer bieten das Buch an:</h2>
 
         <div id="user-list">
-            <ol>
+            <ul>
                 <li class="user-entry"> 
                     <i class="fa fa-user"></i>
-                    <a href="">UserABC</a>
+                    <div>UserABC</div>
                 </li>
 
                 <li class="user-entry"> 
                     <i class="fa fa-user"></i>
-                    <a href="">UserABC</a>
+                    <div>UserABC</div>
                 </li>
-            </ol>
+            </ul>
         </div>
 </div>
 </html>
