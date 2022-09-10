@@ -25,6 +25,14 @@ const PAGES = {
         title: "Registrieung",
         requireLogin: false,
     },
+    "favBookList": {
+        title: "Deine Wunschliste",
+        requireLogin: true,
+    },
+    "ownedBookList": {
+        title: "Bücher in deinem Besitz",
+        requireLogin: true,
+    },
 };
 
 function include(includeEl) {
@@ -42,6 +50,7 @@ function showPage(pageId) {
 
     // Checks if pageId is correct
     if (!PAGES[pageId]) {
+        location.hash = "feed";
         return;
     }
 

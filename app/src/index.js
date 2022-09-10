@@ -19,11 +19,13 @@ function init() {
   window.user = new Account();
   window.user.loadData()
   .then((loggedIn) => {
+    let startPage = "";
     if (loggedIn) {
-      showPage("feed");
+      startPage = "feed";
     } else {
-      showPage((location.hash.slice(1) === "") ? "login" : location.hash.slice(1));
+      startPage = "login";
     }
+    showPage((location.hash.slice(1) === "") ? startPage : location.hash.slice(1));
   }).catch(console.log);
 
 }
