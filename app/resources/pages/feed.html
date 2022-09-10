@@ -1,101 +1,46 @@
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book-Temple</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-</head>
+<div data-include="header"></div>
+<div data-include="sidebar"></div>
 
-<body>
-    <header>
-        <input type ="text" placeholder="Suche ein Buch">
-        <div class="icons">
-            <a id="fav-list" class="fa fa-heart" href="favBookList.html"></a>
-            <div id="" class="fa fa-bell-o"></div>
-            <div id="language-btn" class="fa fa-language"></div>
-            <div id="log-out-btn"class="fa fa-sign-out"></div>
+<div class="main">
+    <div id="feed-window">
+        <div id="book-list">
+            <h2>Die meist gesuchten Bücher</h2>
+            <ol>
+                <li class="book-entry">
+                    <a href="">Anne Frank: Tagebuch</a>
+                    <div style="background-image: url(https://m.media-amazon.com/images/I/61IavHElJOL._AC_SY450_.jpg)">
+                    </div>
+                </li>
+                <li class="book-entry">
+                    <a href="">Anne Frank: Tagebuch</a>
+                    <div style="background-image: url(https://m.media-amazon.com/images/I/61IavHElJOL._AC_SY450_.jpg)">
+                    </div>
+                </li>
+                <li class="book-entry">
+                    <a href="">Anne Frank: Tagebuch</a>
+                    <div style="background-image: url(https://m.media-amazon.com/images/I/61IavHElJOL._AC_SY450_.jpg)">
+                    </div>
+                </li>
+                <li class="book-entry">
+                    <a href="">Anne Frank: Tagebuch</a>
+                    <div style="background-image: url(https://m.media-amazon.com/images/I/61IavHElJOL._AC_SY450_.jpg)">
+                    </div>
+                </li>
+            </ol>
         </div>
-    </header>
 
-    <div class="sidebar">
-        <div class="profile">
-            <div>
-                <div href="" class="fa fa-user"></div>
-                <span>Profil</span>
-            </div>
-            <button>:)</button>
-
-        </div>
-
-        <ul class="nav">
-
-            <li><a href="feed.html">
-                <i class="active"></i>
-                <i class="fa fa-bullhorn"></i>
-                <span>Feed</span>
-            </a></li>
-
-            <li><a href="request.html">
-                <i class="#"></i>
-                <i class="fa fa-envelope"></i>
-                <span>Anfragen</span>
-            </a></li>
-
-            <li><a href="profile.html">
-                <i class="#"></i>
-                <i class="fa fa-user"></i>
-                <span>Profil</span>
-            </a></li>
-
-            <li><a href="settings.html">
-                <i class="#"></i>
-                <i class="fa fa-gear"></i>
-                <span>Einstellungen</span>
-            </a></li>
-        </ul>
-    </div>
-
-    <div class="main">
-        <div id="feed-window">
-            <div id="book-list">
-                <h2>Die meist gesuchten Bücher</h2>
-                <ol>
-                    <li class="book-entry">
-                        <div href="">Anne Frank: Tagebuch</div>
-                        <button class="fa fa-heart-o"></button>
-                    </li>
-                    <li class="book-entry">
-                        <div href="">Anne Frank: Tagebuch</div>
-                        <button class="fa fa-heart-o"></button>
-                    </li>
-                    <li class="book-entry">
-                        <div href="">Anne Frank: Tagebuch</div>
-                        <button class="fa fa-heart-o"></button>
-                    </li>
-                    <li class="book-entry">
-                        <div>Anne Frank: Tagebuch</div>
-                        <button class="fa fa-heart-o"></button>
-                    </li>
-                </ol>
-            </div>
-    
-            <div id="booklist-settings">
-                <h2>Sortieren nach...</h2>
-                <div class="button-box">
-                    <button>Alphabetisch</button>
-                    <button>Alt > Neu</button>
-                    <button>Neu > Alt</button>
-                    <button>Meist getauscht</button>
-                </div>
+        <div id="booklist-settings">
+            <h2>Sortieren nach...</h2>
+            <div class="button-box">
+                <button>Alphabetisch</button>
+                <button>Alt > Neu</button>
+                <button>Neu > Alt</button>
+                <button>Meist getauscht</button>
             </div>
         </div>
     </div>
-
-    <script type="module" src="../../src/index.js"></script>    
-</body>
+</div>
 
 <template id="book-entry-template">
     <ul class="book" book-data="">
@@ -111,8 +56,8 @@
 </template>
 
 <div id="book-modal" class="modal">
-        <span class="close">&times;</span>
-        <h2>Folgende Benutzer bieten das Buch an:</h2>
+    <span class="close">&times;</span>
+    <h2>Folgende Benutzer bieten das Buch an:</h2>
 
         <div id="user-list">
             <ul>

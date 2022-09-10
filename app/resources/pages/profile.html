@@ -1,105 +1,48 @@
-<!DOCTYPE html>
+<div data-include="header"></div>
+<div data-include="sidebar"></div>
 
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book-Temple</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-</head>
+<div class="main">
+    <h2>Profil</h2>
 
-<body>
-    <header>
-        <input type ="text" placeholder="Suche ein Buch">
-        <div class="icons">
-            <a id="fav-list" class="fa fa-heart" href="favBookList.html"></a>
-            <div id="" class="fa fa-bell-o"></div>
-            <div id="language-btn" class="fa fa-language"></div>
-            <div id="log-out-btn"class="fa fa-sign-out"></div>
-        </div>
-    </header>
+    <div class="profile-list">
+        <form action="profile.html" method="get">
+            <li class="profile-entry">
+                <img src="" alt="Profile Image" class="profile-img">
+                <input type="file" name="" id="file" accept="image/*">
+                <label for="file">Profilbild ändern...</label>
+            </li>
+            <li class="profile-entry">
+                <input type="text" name="" placeholder="Vorname">
+            </li>
+            <li class="profile-entry">
+                <input type="text" name="" placeholder="Nachname">
+            </li>
+            <li class="profile-entry">
+                <input type="number" name="" placeholder="Alter">
+            </li>
+            <li class="profile-entry">
+                <input type="email" name="" placeholder="Email">
+            </li>
+            <li class="profile-entry">
+                <input type="text" name="" placeholder="Straße">
+                <input type="number" name="" placeholder="Hausnummer">
+                <input type="text" name="" placeholder="Stadt">
+                <input type="text" name="" placeholder="Land">
+            </li>
 
-    <div class="sidebar">
-        <div class="profile">
-            <div>
-                <i class="fa fa-user"></i>
-                <span>Profil</span>
+            <div class="btn-box">
+                <button class="save-btn">Speichern</button>
+                <button class="edit-btn">Bearbeiten</button>
             </div>
-            <button>:)</button>
-        </div>
+        </form>
+    </div>
 
-    <ul class="nav">
-        <li><a href="feed.html">
-            <i class="#"></i>
-            <i class="fa fa-bullhorn"></i>
-            <span>Feed</span>
-        </a></li>
-
-        <li><a href="request.html">
-            <i class="#"></i>
-            <i class="fa fa-envelope"></i>
-            <span>Anfragen</span>
-        </a></li>
-
-        <li><a href="profile.html">
-            <i class="active"></i>
-            <i class="fa fa-user"></i>
-            <span>Profil</span>
-        </a></li>
-
-        <li><a href="settings.html">
-            <i class="#"></i>
-            <i class="fa fa-gear"></i>
-            <span>Einstellungen</span>
-        </a></li>
-    </ul>
+    <div class="lists">
+        <a class="fav-books" href="favBookList.html">Wunschliste</a>
+        <a class="owned-books" href="ownedBookList.html">Meine Bücher</a>
     </div>
 </div>
 
-    <div class="main">
-        <h2>Profil</h2>
-
-        <div class="profile-list">
-            <form action="profile.html"  method="get">
-                <li class="profile-entry">
-                    <img src="" alt="Profile Image" class="profile-img">
-                    <input type="file" name="" id="file" accept="image/*">
-                    <label for="file">Profilbild ändern...</label>
-                </li>
-                <li class="profile-entry">
-                     <input type="text" name=""  placeholder="Vorname">
-                </li>
-                <li class="profile-entry">
-                    <input type="text" name=""  placeholder="Nachname">
-                </li>
-                <li class="profile-entry">
-                     <input type="number" name=""  placeholder="Alter"> 
-                </li>
-                <li class="profile-entry">
-                    <input type="email" name=""  placeholder="Email">
-                </li>
-                <li class="profile-entry">      
-                    <input type="text" name=""  placeholder="Straße">
-                    <input type="number" name=""  placeholder="Hausnummer">
-                    <input type="text" name=""  placeholder="Stadt">
-                    <input type="text" name=""  placeholder="Land">
-                </li>
-
-                <div class="btn-box">
-                    <button class="save-btn">Speichern</button>
-                    <button class="edit-btn">Bearbeiten</button>
-                </div>
-            </form>
-        </div>
-
-        <div class="lists">
-            <a class="fav-books" href="favBookList.html">Wunschliste</a>
-            <a class="owned-books" href="ownedBookList.html">Meine Bücher</a>
-        </div>
-    </div>
-  
-    <script type="module" src="../../src/index.js"></script>    
 </body>
 
 </html>

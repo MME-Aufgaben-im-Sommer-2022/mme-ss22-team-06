@@ -1,67 +1,9 @@
-<!DOCTYPE html>
+<div data-include="header"></div>
+<div data-include="sidebar"></div>
 
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book-Temple</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-</head>
-
-<body>
-    <header>
-        <input type ="text" placeholder="Suche ein Buch">
-
-        <div class="icons">
-            <a id="fav-list" class="fa fa-heart" href="favBookList.html"></a>
-            <div id="" class="fa fa-bell-o"></div>
-            <div id="language-btn" class="fa fa-language"></div>
-            <div id="log-out-btn"class="fa fa-sign-out"></div>
-        </div>
-    </header>
-
-    <div class="sidebar">
-        <div class="profile">
-            <div>
-                <i class="fa fa-user"></i>
-                <span>Profil</span>
-            </div>
-            <button>:)</button>
-
-        </div>
-
-    <ul class="nav">
-
-        <li><a href="feed.html">
-            <i class="#"></i>
-            <i class="fa fa-bullhorn"></i>
-            <span>Feed</span>
-        </a></li>
-
-        <li><a href="request.html">
-            <i class="#"></i>
-            <i class="fa fa-envelope"></i>
-            <span>Anfragen</span>
-        </a></li>
-
-        <li><a href="profile.html">
-            <i class="#"></i>
-            <i class="fa fa-user"></i>
-            <span>Profil</span>
-        </a></li>
-
-        <li><a href="settings.html">
-            <i class="active"></i>
-            <i class="fa fa-gear"></i>
-            <span>Einstellungen</span>
-        </a></li>
-    </ul>
-    </div>
-</div>
-
+<div class="main">
+    <h2>Einstellungen</h2>
     <div id="settings-list">
-       <h2>Einstellungen</h2>
         <ol>
             <li class="settings-entry">
                 <a href="profile.html">Profil bearbeiten</a>
@@ -74,8 +16,4 @@
             </li>
         </ol>
     </div>
-
-    <script type="module" src="../../src/index.js"></script>    
-</body>
-
-</html>
+</div>

@@ -1,30 +1,31 @@
-import feedView from "./view/feedView.js";
-
+import Account from "./services/account.js";
+import showPage from "./pages.js";
+// import feedView from "./view/feedView.js";
 
 function init() {
-  console.log("### Starting MME Project ###"); // eslint-disable-line no-console
-  var feed = new feedView();
-  feed.openBookInformation();
-  feed.onFavButtonClicked();
+
+  // var feed = new feedView();
+  // feed.openBookInformation();
+  // feed.onFavButtonClicked();
+  
+  // Listens for page changes
+  // Then loads the current page from hash
+  window.addEventListener('hashchange', () => {
+    showPage(location.hash.slice(1));
+  });
+
+  
+  // Checks if User is already logged in
+  window.user = new Account();
+  window.user.loadData()
+  .then((loggedIn) => {
+    if (loggedIn) {
+      showPage("feed");
+    } else {
+      showPage((location.hash.slice(1) === "") ? "login" : location.hash.slice(1));
+    }
+  }).catch(console.log);
 
 }
-
-/*const client = new Appwrite.Client(); // eslint-disable-line
-
-client
-  .setEndpoint('https://appwrite.software-engineering.education/v1') // Your Appwrite Endpoint
-  .setProject('62ecf7be7e25d98c6928') // Your project ID
-;
-
-const account = new Appwrite.Account(client); // eslint-disable-line
-
-// Register User
-account.create('unique()', 'me@example.com', 'password', 'Jane Doe')
-.then(response => {
-    console.log(response);
-}, error => {
-    console.log(error);
-});
-account.delete();*/
 
 init();
