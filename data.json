@@ -1,0 +1,39 @@
+{
+    "users": {
+        "user_id": 0,
+        "username": "",
+        "email": "",
+        "password": "",
+        "avatar_id": 0,
+        "street": "",
+        "zip": 0,
+        "city": "",
+        "surname": "",
+        "lastname": ""
+    },
+    "books": {
+        "book_id": 0,
+        "user_id": 0,
+        "isbn": 0,
+        "created_at": 0,
+        "images": [],
+        "current_state": "available, traded, deleted"
+    },
+    "messages": {
+        "message_id": 0,
+        "created_at": 0,
+        "sender_user_id": 0,
+        "receiver_user_id": 0,
+        "message_body": "",
+        "state": "new, read",
+        "action": "request, rate"
+    },
+    "user_ratings": {
+        "rate_id": 0,
+        "book_id": 0,
+        "from_user_id": 0,
+        "to_user_id": 0,
+        "message_body": "",
+        "stars": 0
+    }
+}

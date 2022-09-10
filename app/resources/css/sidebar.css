@@ -29,17 +29,14 @@
     border-radius: var(--header-height);
 }
 
-.sidebar ul li{
-    margin: 25px 0;
-}
-
 .sidebar ul li a{
     color: black;
-    padding: 0 30px;
+    padding: 12.5px 30px;
+    width: 100%;
+    display: block;
+    transition: 300ms;
 }
 
 .sidebar ul li a:hover{
-color: black;
-margin-left: 20px;
-transition: 0.4s;
+    margin-left: 10px;
 }
