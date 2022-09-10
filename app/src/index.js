@@ -25,8 +25,6 @@ account.create('unique()', 'me@example.com', 'password', 'Jane Doe')
 }, error => {
     console.log(error);
 });
-
 account.delete();*/
 
 init();
-
