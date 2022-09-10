@@ -11,7 +11,17 @@ header input {
     height: 1.5em;
 }
 
-header .icon-box {
+header .icons {
     display: flex;
     gap: 15px;
+  
+}
+
+#fav-list{
+      text-decoration: none;
+      color: red;
+}
+
+header .icons div:hover{
+    background-color: rgb(124, 99, 217);
 }

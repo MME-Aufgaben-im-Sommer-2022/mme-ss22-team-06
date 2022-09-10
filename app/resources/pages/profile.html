@@ -2,13 +2,12 @@
 <div data-include="sidebar"></div>
 
 <div class="main">
-
     <h2>Profil</h2>
 
     <div class="profile-list">
-        <ul>
+        <form action="profile.html" method="get">
             <li class="profile-entry">
-                <img src="" alt="">
+                <img src="" alt="Profile Image" class="profile-img">
                 <input type="file" name="" id="file" accept="image/*">
                 <label for="file">Profilbild ändern...</label>
             </li>
@@ -22,7 +21,7 @@
                 <input type="number" name="" placeholder="Alter">
             </li>
             <li class="profile-entry">
-                <input type="text" name="" placeholder="Land">
+                <input type="email" name="" placeholder="Email">
             </li>
             <li class="profile-entry">
                 <input type="text" name="" placeholder="Straße">
@@ -30,10 +29,20 @@
                 <input type="text" name="" placeholder="Stadt">
                 <input type="text" name="" placeholder="Land">
             </li>
-        </ul>
+
+            <div class="btn-box">
+                <button class="save-btn">Speichern</button>
+                <button class="edit-btn">Bearbeiten</button>
+            </div>
+        </form>
     </div>
 
-    <div class="profile-box">
-        <button>Speichern</button>
+    <div class="lists">
+        <a class="fav-books" href="favBookList.html">Wunschliste</a>
+        <a class="owned-books" href="ownedBookList.html">Meine Bücher</a>
     </div>
 </div>
+
+</body>
+
+</html>

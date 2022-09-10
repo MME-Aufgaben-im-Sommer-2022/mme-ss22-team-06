@@ -1,0 +1,11 @@
+
+class profile{
+
+    editProfile(){
+
+    }
+
+    onEditClicked(){
+        
+    }
+}

@@ -30,12 +30,20 @@
     padding: 5px;
 }
 
-#book-list .book-entry div {
+#book-list .book-entry img {
     background-repeat: no-repeat;
     background-size: 100%;
     min-width: 25px;
     max-width: 25px;
     min-height: 25px;    
+}
+
+#book-list .book-entry button {
+    background-color: white;
+}
+
+#book-list .book-entry i:hover {
+    background-color: grey;   
 }
 
 #booklist-settings {
