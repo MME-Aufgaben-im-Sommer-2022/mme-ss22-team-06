@@ -1,0 +1,27 @@
+header{
+    height: var(--header-height);
+    padding-left: var(--sidebar-width);
+    background-color: rgb(234, 234, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header input {
+    height: 1.5em;
+}
+
+header .icons {
+    display: flex;
+    gap: 15px;
+  
+}
+
+#fav-list{
+      text-decoration: none;
+      color: red;
+}
+
+header .icons div:hover{
+    background-color: rgb(124, 99, 217);
+}

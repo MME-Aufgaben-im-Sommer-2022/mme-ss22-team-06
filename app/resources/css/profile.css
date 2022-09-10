@@ -1,0 +1,84 @@
+.main {
+    display: flex;
+    gap: 1%;
+}
+
+.profile-list h2{
+    background-color: rgb(102, 102, 249);
+}
+
+.profile-list {
+    border: 1px solid black;
+    background-color: rgb(234, 234, 255);
+    width: 60%;
+    margin: auto; 
+    align-items: baseline; 
+}
+
+.profile-list .profile-entry{
+    padding: 5px;
+    list-style-type: none;
+}
+
+.profile-list .profile-entry label{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 5px;
+}
+
+.profile-list .profile-entry input {
+    flex-grow: 1;
+    background: white;
+    padding: 5px;
+}
+
+.profile-list .profile-entry img{
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100px;
+    height: 100px;    
+}
+
+.btn-box{
+   display: flex;
+
+}
+
+.edit-btn{
+    display:block;
+    padding: 5px;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.save-btn{
+    display:block;
+    padding: 5px;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.lists{
+    display: block;
+}
+
+.fav-books{
+    display: block;
+    padding: 5px;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px;
+    margin: 15px;
+}
+
+ .owned-books{
+    display: block;
+    padding: 5px;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px;
+    margin: 15px;
+  
+}
+
