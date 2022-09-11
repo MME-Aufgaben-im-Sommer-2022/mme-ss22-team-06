@@ -25,7 +25,8 @@ function init() {
     } else {
       startPage = "login";
     }
-    showPage((location.hash.slice(1) === "") ? startPage : location.hash.slice(1));
+    // Uses the hash of the URL if not existing the start page is used 
+    showPage(location.hash.slice(1) || startPage);
   }).catch(console.log);
 
 }

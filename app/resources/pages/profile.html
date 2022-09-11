@@ -2,47 +2,50 @@
 <div data-include="sidebar"></div>
 
 <div class="main">
-    <h2>Profil</h2>
 
-    <div class="profile-list">
-        <form action="profile.html" method="get">
-            <li class="profile-entry">
-                <img src="" alt="Profile Image" class="profile-img">
-                <input type="file" name="" id="file" accept="image/*">
-                <label for="file">Profilbild ändern...</label>
-            </li>
-            <li class="profile-entry">
-                <input type="text" name="" placeholder="Vorname">
-            </li>
-            <li class="profile-entry">
-                <input type="text" name="" placeholder="Nachname">
-            </li>
-            <li class="profile-entry">
-                <input type="number" name="" placeholder="Alter">
-            </li>
-            <li class="profile-entry">
-                <input type="email" name="" placeholder="Email">
-            </li>
-            <li class="profile-entry">
-                <input type="text" name="" placeholder="Straße">
-                <input type="number" name="" placeholder="Hausnummer">
-                <input type="text" name="" placeholder="Stadt">
-                <input type="text" name="" placeholder="Land">
-            </li>
 
+    <div class="container">
+
+        <h2>Dein öffentliches Profil</h2>
+
+        <form id="profile-form" onsubmit="return window.updateProfile(this);" class="profile-list">
+            <ul>
+                <li class="input-group">
+                    <div class="profile-img">
+                        <img id="profile-img" src="" alt="Kein Profilbild vorhanden">
+                    </div>
+                    <input type="file" name="avatar" id="file" accept="image/*">
+                    <span class="desc">Erlaubt sind nur .png und .jpg Dateien.</span>
+                </li>
+                <li class="input-group">
+                    <p>Vorname</p>
+                    <input type="text" name="firstname" required>
+                </li>
+                <li>
+                    <p>Nachname</p>
+                    <input type="text" name="lastname" required>
+                </li>
+                <li  class="input-group">
+                    <p>Profilbeschreibung (max. 250 Zeichen)</p>
+                    <textarea rows="2"  name="description" placeholder="Ich mag Fantasy und Drama."></textarea>
+                </li>
+            </ul>
             <div class="btn-box">
                 <button class="save-btn">Speichern</button>
-                <button class="edit-btn">Bearbeiten</button>
             </div>
         </form>
+
     </div>
 
     <div class="lists">
-        <a class="fav-books" href="favBookList.html">Wunschliste</a>
-        <a class="owned-books" href="ownedBookList.html">Meine Bücher</a>
+        <a class="fav-books" href="#favBookList">Wunschliste</a>
+        <a class="owned-books" href="#ownedBookList">Meine Bücher</a>
     </div>
+
 </div>
 
-</body>
-
-</html>
+<script type="module">
+    import {loadProfile, updateProfile} from "./src/view/profile.js"
+    loadProfile();
+    window.updateProfile = updateProfile;
+</script>

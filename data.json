@@ -1,15 +1,24 @@
 {
-    "users": {
+    "accounts": { // Manage by appwrite
         "user_id": 0,
-        "username": "",
         "email": "",
-        "password": "",
+        "password": ""
+    },
+    "users": {
         "avatar_id": 0,
-        "street": "",
-        "zip": 0,
-        "city": "",
+        "user_id": 0,
         "surname": "",
-        "lastname": ""
+        "lastname": "",
+
+        "permissions": "all"
+    },
+    "wishlist": {
+        "wishlist_id": 0,
+        "user_id": 0,
+        "isbn": 0,
+        "created_at": 0,
+
+        "permissions": "all"
     },
     "books": {
         "book_id": 0,
@@ -17,7 +26,9 @@
         "isbn": 0,
         "created_at": 0,
         "images": [],
-        "current_state": "available, traded, deleted"
+        "current_state": "available, traded, deleted",
+
+        "permissions": "available: all, else only user"
     },
     "messages": {
         "message_id": 0,
@@ -26,7 +37,9 @@
         "receiver_user_id": 0,
         "message_body": "",
         "state": "new, read",
-        "action": "request, rate"
+        "action": "request, rate",
+
+        "permissions": "only sender and receiver"
     },
     "user_ratings": {
         "rate_id": 0,
@@ -34,6 +47,9 @@
         "from_user_id": 0,
         "to_user_id": 0,
         "message_body": "",
-        "stars": 0
+        "stars": 0,
+        "created_at": 0,
+
+        "permissions": "all"
     }
 }

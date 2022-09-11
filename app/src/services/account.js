@@ -1,4 +1,4 @@
-import { client } from "../appwrite.js";
+import { client, database } from "../appwrite.js";
 import showPage from "../pages.js";
 
 // Account is the user who logs in
@@ -7,14 +7,16 @@ import showPage from "../pages.js";
 class Account {
 
   constructor() {
-    this.account = new Appwrite.Account(client); // eslint-disable-line  
+    this.account = new Appwrite.Account(client); // eslint-disable-line 
     this.userData = null; // user information from appwrite
     this.isLoggedIn = false;
   }
 
   loadData () {
 
-    return new Promise((re) => {
+    // When logged in userData is loaded from appwrite
+    // Returns true if logged in if not returns false
+    return new Promise(re => {
       this.account.get()
       .then((userData) => {
           this.userData = userData;
@@ -28,13 +30,16 @@ class Account {
   }
 
   // Register new user and auto login 
-  create(email, fname, sname, password) {
+  create(email, firstname, lastname, password) {
 
-    this.account.create('unique()', email, password, fname + "::" + sname)
-    .then(() => {
-      this.signIn(email, password);
-    }, error => {
-      console.log(error);
+    this.account.create('unique()', email, password)
+    .then(async (response) => {
+      
+      this.signIn(email, password, async () => {
+        await this.createUserDocument(response.$id, firstname, lastname);
+        showPage("feed");
+      });
+    }, (error) => {
       // eslint-disable-next-line no-alert
       alert(error.message);
     });
@@ -43,17 +48,20 @@ class Account {
     
   }
 
-  signIn (email, password) {
+  signIn (email, password, callBack = null) {
     
     this.account.createEmailSession(email, password)
     .then((userData) => {
         this.userData = userData;
         this.isLoggedIn = true;
-        showPage("feed");
+        if (callBack) {
+          callBack();
+        } else {
+          showPage("feed");
+        }
     }, (error) => {
-        console.log(error);
         // eslint-disable-next-line no-alert
-        window.alert(error.message);
+        alert(error.message);
     });
 
     return false; // prevent browser form submission
@@ -70,6 +78,14 @@ class Account {
 
   }
 
+  createUserDocument (userId, firstname, lastname) {
+
+    return database.createDocument('631dc5d578112759fe25', userId, {
+      firstname, lastname,
+    }, ["role:member"] );
+
+  }
+
   updateEmail(email, password) {
     return new Promise((re, rj) => {
       if (this.appwriteUser === null) {
@@ -81,36 +97,6 @@ class Account {
         }, (error) => {
           console.log(error);
           rj(error);
-        });
-      }
-    });
-  }
-
-  updateName(fname, sname) {
-    return new Promise((re) => {
-      this.account.updateName(fname + "::" + sname)
-      .then(() => {
-        re();
-      }, (error) => {
-        console.log(error);
-        rj(error);
-      });
-    });
-  }
-
-  updateAddress(street, housenumber, postalCode, city) {
-    // FIXME: Currently not working
-    let address = [street, housenumber, postalCode, city];
-    return new Promise((re, rj) => {
-      if (this.appwriteUser === null) {
-        rj("No user given.");
-      } else {
-        this.account.updatePrefs(JSON.stringify(address))
-        .then(() => {
-          re();
-        }, (error) => {
-          console.log(error); // Failure
-          re();
         });
       }
     });
