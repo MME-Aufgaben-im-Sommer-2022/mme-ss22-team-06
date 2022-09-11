@@ -3,18 +3,6 @@
     gap: 1%;
 }
 
-.profile-list h2{
-    background-color: rgb(102, 102, 249);
-}
-
-.profile-list {
-    border: 1px solid black;
-    background-color: rgb(234, 234, 255);
-    width: 60%;
-    margin: auto; 
-    align-items: baseline; 
-}
-
 .profile-list li{
     padding: 5px;
     list-style-type: none;
@@ -71,7 +59,7 @@
     margin: 15px;
 }
 
- .owned-books{
+.owned-books{
     display: block;
     padding: 5px;
     justify-content: space-between;
