@@ -38,7 +38,7 @@ const PAGES = {
 function include(includeEl) {
 
     // Fetches and includes html code into placeholder
-    fetch(`/resources/includes/${includeEl.dataset.include}.html`)
+    fetch(`./resources/includes/${includeEl.dataset.include}.html`)
         .then(e => e.text())
         .then(includeBody => {
             includeEl.innerHTML = includeBody;
@@ -78,7 +78,7 @@ function showPage(pageId) {
     const pageEl = document.getElementById("page");
 
     // Loads source code from the given pageId
-    fetch(`/resources/pages/${pageId}.html`)
+    fetch(`./resources/pages/${pageId}.html`)
         .then(e => e.text())
         .then(pageBody => {
             pageEl.innerHTML = "";
