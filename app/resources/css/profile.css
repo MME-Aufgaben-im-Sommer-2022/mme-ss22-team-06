@@ -15,25 +15,25 @@
     align-items: baseline; 
 }
 
-.profile-list .profile-entry{
+.profile-list li{
     padding: 5px;
     list-style-type: none;
 }
 
-.profile-list .profile-entry label{
+.profile-list li label{
     display: flex;
     justify-content: space-between;
     gap: 5px;
     padding: 5px;
 }
 
-.profile-list .profile-entry input {
+.profile-list li input {
     flex-grow: 1;
     background: white;
     padding: 5px;
 }
 
-.profile-list .profile-entry img{
+.profile-list li img{
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100px;

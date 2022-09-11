@@ -3,16 +3,16 @@
 <form onsubmit="return window.user.create(this.email.value, this.fname.value, this.sname.value, this.password.value)">
     
     <label>E-Mail:</label>
-    <input type="text" name="email" value="temail@email.com"><br><br>
+    <input type="text" required name="email" value="test@email.com"><br><br>
     
     <label>Vorname:</label>
-    <input type="text" name="fname" value="Manfred"><br><br>
+    <input type="text" required name="fname" value="Manfred"><br><br>
     
     <label>Nachname:</label>
-    <input type="text" name="sname" value="Mannheimer"><br><br>
+    <input type="text" required name="sname" value="Mannheimer"><br><br>
 
     <label>Passwort:</label>
-    <input type="password" name="password" value="password"><br><br>
+    <input type="password" required name="password" value="password"><br><br>
     
     <input type="submit" value="Registrieren">
     

@@ -81,7 +81,9 @@ function showPage(pageId) {
     fetch(`/resources/pages/${pageId}.html`)
         .then(e => e.text())
         .then(pageBody => {
-            pageEl.innerHTML = pageBody;
+            pageEl.innerHTML = "";
+            // https://stackoverflow.com/a/62641523
+            pageEl.append(document.createRange().createContextualFragment(pageBody));
             // Includes shared html code (e.g. header is used in multiple pages)
             pageEl.querySelectorAll("[data-include]").forEach(el => {
                 include(el);
