@@ -1,12 +1,11 @@
 import Account from "./services/account.js";
 import showPage from "./pages.js";
- import feedView from "./view/feedView.js";
+import feedView from "./view/feedView.js";
 
 function init() {
 
    var feed = new feedView();
-   feed.openBookInformation();
-   feed.onFavButtonClicked();
+   feed.onPageLoaded();
   
   // Listens for page changes
   // Then loads the current page from hash
