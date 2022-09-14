@@ -33,6 +33,10 @@ const PAGES = {
         title: "Bücher in deinem Besitz",
         requireLogin: true,
     },
+    "password-reset": {
+        title: "Passwort zurücksetzen",
+        requireLogin: false,
+    },
 };
 
 function include(includeEl) {

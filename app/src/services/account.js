@@ -19,6 +19,7 @@ class Account {
     return new Promise(re => {
       this.account.get()
       .then((userData) => {
+          console.log(userData);
           this.userData = userData;
           this.isLoggedIn = true;
           re(true);
@@ -29,6 +30,17 @@ class Account {
 
   }
 
+  createPasswordRecovery (email) {
+    this.account.createRecovery(email, location.origin + "#password-confirmation")
+    .then(() => {
+        alert("Bitte E-Mails überprüfen.");
+        showPage("login");
+    }, (error) => {
+        alert(error.message);
+    });
+    return false;
+  }
+
   // Register new user and auto login 
   create(email, firstname, lastname, password) {
 
@@ -37,7 +49,7 @@ class Account {
       
       this.signIn(email, password, async () => {
         await this.createUserDocument(response.$id, firstname, lastname);
-        showPage("feed");
+        location.reload();
       });
     }, (error) => {
       // eslint-disable-next-line no-alert
@@ -51,13 +63,11 @@ class Account {
   signIn (email, password, callBack = null) {
     
     this.account.createEmailSession(email, password)
-    .then((userData) => {
-        this.userData = userData;
-        this.isLoggedIn = true;
+    .then(() => {
         if (callBack) {
           callBack();
         } else {
-          showPage("feed");
+          location.reload();
         }
     }, (error) => {
         // eslint-disable-next-line no-alert
