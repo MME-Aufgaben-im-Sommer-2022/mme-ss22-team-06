@@ -113,6 +113,10 @@ body {
     background-color: rgb(234, 234, 255);
     border: 1px solid black;
 }
+.center-container {
+    max-width: 450px;
+    margin: 50px auto;
+}
 .container h2 {
     width: calc(100% + 20px);
     margin: -10px 0 10px -10px;

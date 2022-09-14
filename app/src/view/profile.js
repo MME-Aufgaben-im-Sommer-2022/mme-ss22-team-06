@@ -35,7 +35,6 @@ export function updateProfile (form) {
     if (form.file.files.length === 1) {
 
         storage.createFile('631dd36b0c511ff97f9f', window.user.userData.$id, form.file.files[0])
-
         .then(() => {
             alert("Profilbild hochgeladen.");
         }, (error) => {

@@ -14,7 +14,6 @@ function init() {
     showPage(location.hash.slice(1));
   });
 
-  
   // Checks if User is already logged in
   window.user = new Account();
   window.user.loadData()
