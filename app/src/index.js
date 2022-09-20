@@ -3,9 +3,6 @@ import showPage from "./pages.js";
 import feedView from "./view/feedView.js";
 
 function init() {
-
-   var feed = new feedView();
-   feed.onPageLoaded();
   
   // Listens for page changes
   // Then loads the current page from hash

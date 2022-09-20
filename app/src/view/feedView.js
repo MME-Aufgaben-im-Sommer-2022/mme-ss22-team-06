@@ -1,20 +1,26 @@
+import showPage from "../pages.js";
 
 class feedView{
 
 //After page has loaded, functions and events will be available.
    onPageLoaded(){
-        window.addEventListener("load", function() {
-
-            console.log("dom loaded");
-        });    
-        
-        //Wait three seconds after the page finished loading, so the events won't be triggered before. 
-                const timeout = setTimeout(function() {
-                openBookInformation();
-                onFavButtonClicked();
-                },3000);    
-                
+         console.log("dom loaded");
+            openBookInformation();
+            onFavButtonClicked();  
+            showUser();               
     }
+}
+
+function showUser(){
+
+    let userEntry = document.querySelectorAll(".user-entry");
+
+    userEntry.forEach((e) =>    
+                
+    e.addEventListener("click", function(){
+        console.log("on user clicked");
+        showPage("userProfile");
+    })); 
 }
 
 //Opens and closes a modal window with information after clicking on a book entry in feed
