@@ -27,6 +27,23 @@ header .brand p {
     width: 300px;
 }
 
+.filter{
+    padding-left: 26px;
+    flex: 3;
+}
+
+.filter label{
+    text-decoration: none;
+    font-size: smaller;
+    align-content: center;
+}
+
+.filter select{
+    padding-left: 26px;
+    flex:auto;
+    align-content: space-between;
+}
+
 .menu {
     padding-right: 10px;
 }
@@ -45,6 +62,7 @@ header .brand p {
     cursor: pointer;
     transition: 300ms;
 }
+
 .navigation a:hover,
 .menu ul li a:hover {
     /* transform: scale(1.1); */
