@@ -2,20 +2,18 @@
 class feedView{
 
 //After page has loaded, functions and events will be available.
-    onPageLoaded(){
-        document.addEventListener("DOMContentLoaded", function() {
+   onPageLoaded(){
+        window.addEventListener("load", function() {
 
             console.log("dom loaded");
-            window.onload = function() {
-                console.log("page is loaded");
-                
-                //Wait three seconds after the page finished loading, so the events won't be triggered before. 
+        });    
+        
+        //Wait three seconds after the page finished loading, so the events won't be triggered before. 
                 const timeout = setTimeout(function() {
                 openBookInformation();
                 onFavButtonClicked();
-                },3000)
-            }
-        }); 
+                },3000);    
+                
     }
 }
 
