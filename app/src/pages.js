@@ -1,3 +1,4 @@
+import feedView from "./view/feedView.js";
 
 // Available pages with options
 const PAGES = {
@@ -33,6 +34,11 @@ const PAGES = {
         title: "Bücher in deinem Besitz",
         requireLogin: true,
     },
+    "userProfile": {
+        title: "Profil von UserABC",
+        requireLogin: true,
+    },
+    
 };
 
 function include(includeEl) {
@@ -43,7 +49,6 @@ function include(includeEl) {
         .then(includeBody => {
             includeEl.innerHTML = includeBody;
         });
-
 }
 
 function showPage(pageId) {
@@ -88,6 +93,13 @@ function showPage(pageId) {
             pageEl.querySelectorAll("[data-include]").forEach(el => {
                 include(el);
             });
+        })
+        .then(() => {
+            //extra scripts should be executed here:
+            if (pageId == "feed") {
+                let feed = new feedView();
+                feed.onPageLoaded();
+            }
         });
 
 }

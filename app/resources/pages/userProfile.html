@@ -1,0 +1,24 @@
+<h2> Profil von UserABC</h2>
+
+<form id="profile-form" onsubmit="return window.updateProfile(this);" class="profile-list">
+    <ul>
+        <li class="input-group">
+            <div class="profile-img">
+                <img id="profile-img" src="" alt="Kein Profilbild vorhanden">
+            </div>
+            <input type="file" name="avatar" id="file" accept="image/*">
+            <span class="desc">Erlaubt sind nur .png und .jpg Dateien.</span>
+        </li>
+        <li class="input-group">
+            <p>Vorname</p>
+            <input type="text" name="firstname" required>
+        </li>
+        <li>
+            <p>Nachname</p>
+            <input type="text" name="lastname" required>
+        </li>
+        <li  class="input-group">
+            <p>Profilbeschreibung (max. 250 Zeichen)</p>
+            <textarea rows="2"  name="description" placeholder="Ich mag Fantasy und Drama."></textarea>
+        </li>
+    </ul>
