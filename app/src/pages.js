@@ -1,3 +1,4 @@
+import feedView from "./view/feedView.js";
 
 // Available pages with options
 const PAGES = {
@@ -37,6 +38,11 @@ const PAGES = {
         title: "Passwort zurücksetzen",
         requireLogin: false,
     },
+    "userProfile": {
+        title: "Profil von UserABC",
+        requireLogin: true,
+    },
+    
 };
 
 function include(includeEl) {
@@ -48,7 +54,6 @@ function include(includeEl) {
             includeEl.innerHTML = "";
             includeEl.append(document.createRange().createContextualFragment(includeBody));
         });
-
 }
 
 function showPage(pageId) {
@@ -96,6 +101,13 @@ function showPage(pageId) {
             pageEl.querySelectorAll("[data-include]").forEach(el => {
                 include(el);
             });
+        })
+        .then(() => {
+            //extra scripts should be executed here:
+            if (pageId == "feed") {
+                let feed = new feedView();
+                feed.onPageLoaded();
+            }
         });
 
 }
