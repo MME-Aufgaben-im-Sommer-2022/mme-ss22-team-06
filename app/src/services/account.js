@@ -1,5 +1,6 @@
 import { client, database } from "../appwrite.js";
 import showPage from "../pages.js";
+import { deleteMyBookList } from "./my-books.js";
 
 // Account is the user who logs in
 // Users can register, update and delete
@@ -30,7 +31,10 @@ class Account {
 
   }
 
+  // FIXME: Should send email to logged in user,
+  // but problems with Appwrite
   createPasswordRecovery (email) {
+
     this.account.createRecovery(email, location.origin + "#password-confirmation")
     .then(() => {
         alert("Bitte E-Mails überprüfen.");
@@ -79,9 +83,8 @@ class Account {
   }
 
   signOut () {
-    
+
     this.account.deleteSessions()
-    // .then(() => {}, console.error)
     .finally(() => {
       location.reload();
     });
@@ -97,43 +100,39 @@ class Account {
   }
 
   updateEmail(email, password) {
-    return new Promise((re, rj) => {
+
       if (this.appwriteUser === null) {
-        rj("No user given.");
-      } else {
-        this.account.updateEmail(email, password)
-        .then(() => {
-          re();
-        }, (error) => {
-          console.log(error);
-          rj(error);
-        });
+        return null;
       }
-    });
+      return this.account.updateEmail(email, password);
   }
 
   updatePassword(newPassword, oldPassword) {
+    return this.account.updatePassword(newPassword, oldPassword);
+  }
 
-    return new Promise((re, rj) => {
-      this.account.updatePassword(newPassword, oldPassword)
-      .then((response) => {
-        console.log(response);
-        re();
-      }, rj);
+  // FIXME: Deleting Account doesn't work with Appwrite
+  delete(callBack) {
+    this.account.updateEmail("deleted"+String(Math.random())+"@deleted.com", prompt("Passwort")) // eslint-disable-line 
+    .then(() => {
+      // The MyBookList has to be deleted so the books
+      // don't show up in other users feeds anymore
+      deleteMyBookList(() => {
+        // FIXME: When status is updated to blocked the Cookie
+        // isn't deleted which creates problems so we just 
+        // change the mail-address to a random address and
+        // sign the user out
+        // this.account.updateStatus(() => {
+        //   location.reload();
+        // });
+        this.signOut();
+      });
+    }, (e) => {
+      console.log(e);
+      callBack(true);
     });
   }
 
-  delete() {
-
-    return new Promise((re, rj) => {
-      this.account.updateStatus()
-      .then((response) => {
-        console.log(response);
-        re();
-      }, rj);
-    });
-
-  }
 }
 
 export default Account;

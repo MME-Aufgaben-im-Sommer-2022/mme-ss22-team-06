@@ -3,13 +3,12 @@
 
 <div class="main">
 
-
     <div class="container">
 
         <h2>Dein öffentliches Profil</h2>
 
-        <form id="profile-form" onsubmit="return window.updateProfile(this);" class="profile-list">
-            <ul>
+        <form id="profile-form" onsubmit="return window.updateProfile(this);" >
+            <ul class="profile-list">
                 <li class="input-group">
                     <div class="profile-img">
                         <img id="profile-img" src="" alt="Kein Profilbild vorhanden">
@@ -30,16 +29,9 @@
                     <textarea rows="2"  name="description" placeholder="Ich mag Fantasy und Drama."></textarea>
                 </li>
             </ul>
-            <div class="btn-box">
-                <button class="save-btn">Speichern</button>
-            </div>
+            <button class="btn">Speichern</button>
         </form>
 
-    </div>
-
-    <div class="lists">
-        <a class="fav-books" href="#favBookList">Wunschliste</a>
-        <a class="owned-books" href="#ownedBookList">Meine Bücher</a>
     </div>
 
 </div>

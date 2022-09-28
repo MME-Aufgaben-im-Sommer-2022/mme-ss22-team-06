@@ -1,6 +1,7 @@
 import { database, storage } from "../appwrite.js";
 
 export function loadProfile () {
+    console.log(window.user.userData.$id);
     database.getDocument('631dc5d578112759fe25', window.user.userData.$id)
     .then(data => {
         const form = document.getElementById("profile-form");
@@ -11,9 +12,14 @@ export function loadProfile () {
         
     });
 
-    const url = storage.getFileDownload('631dd36b0c511ff97f9f', window.user.userData.$id);
-    // console.log(url.href);
-    document.getElementById("profile-img").src = url.href;
+    const url = getProfilePic(window.user.userData.$id);
+    //const url = storage.getFileDownload('631dd36b0c511ff97f9f', window.user.userData.$id);
+    console.log(url.href);
+    document.getElementById("profile-img").src = url.href + "&disableCache=" + String(Math.random());
+}
+
+export function getProfilePic(userID){
+    return storage.getFileDownload('631dd36b0c511ff97f9f', userID);
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -40,7 +46,6 @@ export function updateProfile (form) {
         }, (error) => {
             alert(error.messages);
         });
-
 
     }
 
