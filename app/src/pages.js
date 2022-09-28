@@ -14,6 +14,14 @@ const PAGES = {
         title: "Anfrage",
         requireLogin: true,
     },
+    "wishlist": {
+        title: "Wunschliste",
+        requireLogin: true,
+    },
+    "my-books": {
+        title: "Meine Bücher",
+        requireLogin: true,
+    },
     "settings": {
         title: "Einstellungen",
         requireLogin: true,
@@ -23,16 +31,12 @@ const PAGES = {
         requireLogin: false,
     },
     "register": {
-        title: "Registrieung",
+        title: "Registrierung",
         requireLogin: false,
     },
-    "favBookList": {
-        title: "Deine Wunschliste",
-        requireLogin: true,
-    },
-    "ownedBookList": {
-        title: "Bücher in deinem Besitz",
-        requireLogin: true,
+    "password-reset": {
+        title: "Passwort zurücksetzen",
+        requireLogin: false,
     },
     "userProfile": {
         title: "Profil von UserABC",
@@ -47,7 +51,8 @@ function include(includeEl) {
     fetch(`./resources/includes/${includeEl.dataset.include}.html`)
         .then(e => e.text())
         .then(includeBody => {
-            includeEl.innerHTML = includeBody;
+            includeEl.innerHTML = "";
+            includeEl.append(document.createRange().createContextualFragment(includeBody));
         });
 }
 
@@ -82,10 +87,13 @@ function showPage(pageId) {
 
     const pageEl = document.getElementById("page");
 
+    document.querySelector(".loader-container").classList.remove("hidden");
+
     // Loads source code from the given pageId
     fetch(`./resources/pages/${pageId}.html`)
         .then(e => e.text())
         .then(pageBody => {
+            document.querySelector(".loader-container").classList.add("hidden");
             pageEl.innerHTML = "";
             // https://stackoverflow.com/a/62641523
             pageEl.append(document.createRange().createContextualFragment(pageBody));

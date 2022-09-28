@@ -2,7 +2,7 @@
 <div data-include="sidebar"></div>
 
 <div class="main">
-    
+
     <div class="container settings-list">
         <h2>Einstellungen</h2>
         <ul>
@@ -13,8 +13,19 @@
                 <a href="">Passwort ändern</a>
             </li>
             <li>
-                <a href="">Profil löschen</a>
+                <a onclick=deleteProfile()>Profil löschen</a>
             </li>
         </ul>
     </div>
 </div>
+
+
+<script type="module">
+window.deleteProfile = () => {
+    window.user.delete((error, updateStatusPromise)=>{
+        if(error){
+            return alert("Passwort falsch");
+        }
+    });
+}
+</script>

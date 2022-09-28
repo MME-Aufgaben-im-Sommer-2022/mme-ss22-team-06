@@ -1,72 +1,56 @@
 <div data-include="header"></div>
 <div data-include="sidebar"></div>
 
-<div class="main">
-    <div id="feed-window">
-        <div id="book-list">
-            <h2>Die meist gesuchten Bücher</h2>
-            <ol>
-                <li class="book-entry">
-                    <div href="">Anne Frank: Tagebuch</div>
-                    <button class="fa fa-heart-o"></button>
-                </li>
-                <li class="book-entry">
-                    <div href="">Anne Frank: Tagebuch</div>
-                    <button class="fa fa-heart-o"></button>
-                </li>
-                <li class="book-entry">
-                    <div href="">Anne Frank: Tagebuch</div>
-                    <button class="fa fa-heart-o"></button>
-                </li>
-                <li class="book-entry">
-                    <div>Anne Frank: Tagebuch</div>
-                    <button class="fa fa-heart-o"></button>
-                </li>
-            </ol>
+<div class="main container-row">
+    <div class="container">
+        <h2>Dein Feed</h2>
+        <div class="book-list list-clickable">
+            <ul id="book-feed-list"></ul>
         </div>
+    </div>
+    <div class="container container-small">
+        <h2>Sortieren nach...</h2>
+        <ul class="btn-list">
+            <li><button class="btn">Alphabetisch</button></li>
+            <li><button class="btn">Alt > Neu</button></li>
+            <li><button class="btn">Neu > Alt</button></li>
+            <li><button class="btn">Meist getauscht</button></li>
+        </ul>
+    </div>
+</div>
 
-        <div id="booklist-settings">
-            <h2>Sortieren nach...</h2>
-            <div class="button-box">
-                <button>Alphabetisch</button>
-                <button>Alt > Neu</button>
-                <button>Neu > Alt</button>
-                <button>Meist getauscht</button>
-            </div>
+<div data-include="book"></div>
+<div data-include="user"></div>
+
+<div id="book-modal" class="modal">
+
+    <div class="modal-body container">
+        <div class="close" onclick="document.getElementById('book-modal').classList.remove('open');"><i class="fa fa-times"></i></div>
+        <h2>Folgende Benutzer bieten das Buch an:</h2>
+
+        <div class="user-list">
+            <ul id="user-entry-list">
+                <!-- <li class="user-entry"> 
+                    <i class="fa fa-user"></i>
+                    <div>UserABC</div>
+                </li>
+
+                <li class="user-entry"> 
+                    <i class="fa fa-user"></i>
+                    <div>UserABC</div>
+                </li> -->
+            </ul>
         </div>
     </div>
 </div>
 
-<template id="book-entry-template">
-    <ul class="book" book-data="">
-
-        <span class="container book-data">
-            <span class="author"></span>
-            <span class="title"></span>
-            <span class="fav-icon">
-                <i class="fa fa-heart-o"></i>
-            </span>
-        </span>
-    </ul>
-</template>
-
-<div id="book-modal" class="modal">
-    <span id="close-btn">&times;</span>
-    <h2>Folgende Benutzer bieten das Buch an:</h2>
-
-        <div id="user-list">
-            <ul>
-                <li class="user-entry"> 
-                    <i class="fa fa-user"></i>
-                    <div>UserABC</div>
-                </li>
-
-                <li class="user-entry"> 
-                    <i class="fa fa-user"></i>
-                    <div>UserABC</div>
-                </li>
-            </ul>
-        </div>
-</div>
-    
-
+<script type="module">
+import {addBookToMyWishlist} from "./src/services/wishlist.js"
+import {loadFeedData} from "./src/view/feed.js"
+loadFeedData();
+window.addBookToMyWishlist = addBookToMyWishlist;
+window.sendMessage = (userId) => {
+    console.log("Go to request", userId);
+    location.hash = "request";
+}
+</script>

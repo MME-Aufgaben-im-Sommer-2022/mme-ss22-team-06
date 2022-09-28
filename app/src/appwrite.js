@@ -10,3 +10,5 @@ client
 // eslint-disable-next-line one-var, no-undef
 export const database = new Appwrite.Databases(client, '631dc374066960711054');
 export const storage = new Appwrite.Storage(client);
+
+export const DB_ID_WISHLIST = "632a1d7067587dbef5ec";

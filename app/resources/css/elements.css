@@ -1,0 +1,105 @@
+/* Book and User Item */
+
+.book-list,
+.user-list {
+    overflow: auto;
+    height: 100%;
+}
+
+.book-list ul,
+.user-list ul {
+    list-style: none;
+}
+
+.book-list li,
+.user-list li {
+    margin: 14px 0;
+}
+
+.book-list.list-clickable li {
+    cursor: pointer;
+}
+.book-list.list-clickable li:hover {
+    background: #00000014;
+}
+
+/* Book ans User Item */
+
+.book,
+.user {
+    display: flex;
+    width: 100%;
+    border-radius: 2px;
+    border: 1px solid #e3e3e3;
+    padding: 10px 0px;
+    position: relative;
+}
+.book .cover,
+.user .img {
+    display: flex;
+    align-items: center;
+    height: 120px;
+    width: 105px;
+    overflow: hidden;
+}
+.book .cover img,
+.user .img img {
+    padding: 0px 14px;
+    max-width: 100%;
+    height: auto;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.book .details,
+.user .details {
+    flex: 1;
+}
+.book .details .title,
+.user .details .name {
+    font-size: 20px;
+    font-weight: bold;
+}
+.book .actions,
+.user .actions {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+
+/* Input/Textarea */
+input,
+textarea {
+    padding: 6px 9px;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    width: 100%;
+    resize: none;
+}
+input:focus,
+textarea:focus {
+    border: 1px solid #a8a8a8;
+}
+.input-group .desc {
+    font-size: 13px;
+    color: #525151;
+}
+
+/* Buttons */
+.btn-list {
+    list-style: none;
+}
+.btn-list {
+    margin: 6px;
+    text-align: center;
+}
+.btn {
+    padding: 3px 14px;
+    background: #fff;
+    border: 1px solid rgb(48, 48, 48);
+    cursor: pointer;
+}
+.btn:hover {
+    border: 1px solid #000;
+}

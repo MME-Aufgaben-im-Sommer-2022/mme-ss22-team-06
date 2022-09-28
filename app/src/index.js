@@ -1,6 +1,5 @@
 import Account from "./services/account.js";
 import showPage from "./pages.js";
-import feedView from "./view/feedView.js";
 
 function init() {
   
@@ -10,7 +9,6 @@ function init() {
     showPage(location.hash.slice(1));
   });
 
-  
   // Checks if User is already logged in
   window.user = new Account();
   window.user.loadData()

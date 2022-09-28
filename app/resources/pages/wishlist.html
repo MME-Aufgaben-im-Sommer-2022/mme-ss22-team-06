@@ -1,0 +1,41 @@
+<div data-include="header"></div>
+<div data-include="sidebar"></div>
+
+<div class="main">
+    <div class="container">
+        <h2>Deine Wunschliste</h2>
+        <button onclick="document.getElementById('new-book-modal').classList.add('open');">Neues Buch hinzufügen</button>
+        <div class="book-list">
+            <ul id="wishlist-list"></ul>
+        </div>
+    </div>
+</div>
+
+<div data-include="modal-book-search"></div>
+<div data-include="book"></div>
+
+<script type="module">
+import {wishlistLoadUserData} from "./src/view/wishlist.js"
+import {addBookToMyWishlist, removeBookFromWishlist} from "./src/services/wishlist.js";
+
+wishlistLoadUserData();
+
+window.searchModifyFunction = (bookEl, isbn) => {
+    bookEl.querySelector(".actions").innerHTML = 
+        "<button class='btn' onclick='addBookToMyWishlistHandler(\""+isbn+"\")'><i class='fa fa-heart-o' aria-hidden='true'></i></button>";
+}
+
+window.addBookToMyWishlistHandler = (isbn) => {
+    document.getElementById('new-book-modal').classList.remove('open');
+    addBookToMyWishlist(isbn).then(() => {
+        wishlistLoadUserData();
+    });
+}
+
+window.removeBookFromWishlistHandler = (book_id) => {
+    removeBookFromWishlist(book_id).then(() => {
+        wishlistLoadUserData();
+    });
+};
+
+</script>
