@@ -1,55 +1,55 @@
-import { database } from "../appwrite.js";
+import { database, DB_ID_STATISTICS, DB_ID_BOOKS } from "../appwrite.js";
 
 export function addBookToMyBookList (isbn) {
 
     // add to statistics
-    database.getDocument("632701f4118aab49ac92", isbn)
+    database.getDocument(DB_ID_STATISTICS, isbn)
     .then((entry) => {
         // count available up
-        database.updateDocument("632701f4118aab49ac92", isbn, {
+        database.updateDocument(DB_ID_STATISTICS, isbn, {
             available: entry.available+1,
         });
     }, () => {
         // book not exists
-        database.createDocument("632701f4118aab49ac92", isbn, {
+        database.createDocument(DB_ID_STATISTICS, isbn, {
             available: 1,
             traded: 0,
         });
     });
 
-    return database.createDocument("632636e3e35316b100d2", "unique()", {
+    return database.createDocument(DB_ID_BOOKS, "unique()", {
+        // eslint-disable-next-line camelcase
         user_id: window.user.userData.$id, isbn: String(isbn), book_state: "available",
     }, ["role:member"] );
 
 }
 
-export function removeBookFromMyBookList (book_id, isbn) {
+export function removeBookFromMyBookList (bookId, isbn) {
 
     // remove from statistics
-    database.getDocument("632701f4118aab49ac92", isbn)
+    database.getDocument(DB_ID_STATISTICS, isbn)
     .then((entry) => {
         // count available down
-        database.updateDocument("632701f4118aab49ac92", isbn, {
+        database.updateDocument(DB_ID_STATISTICS, isbn, {
             available: entry.available-1,
         });
     });
 
-    return database.deleteDocument("632636e3e35316b100d2", book_id);
+    return database.deleteDocument(DB_ID_BOOKS, bookId);
 
 }
 
+export function loadMyBookList (userID = window.user.userData.$id) {
 
-export function loadMyBookList () {
-
-    return database.listDocuments("632636e3e35316b100d2", [
-        Appwrite.Query.equal("user_id", [window.user.userData.$id]),  // eslint-disable-line
+    return database.listDocuments(DB_ID_BOOKS, [
+        Appwrite.Query.equal("user_id", [userID]),  // eslint-disable-line
         Appwrite.Query.equal("book_state", ["available"]),  // eslint-disable-line
     ]);
 
 }
 
 export function deleteMyBookList (callBack) {
-    database.listDocuments("632636e3e35316b100d2", [
+    database.listDocuments(DB_ID_BOOKS, [
         Appwrite.Query.equal("user_id", [window.user.userData.$id]),  // eslint-disable-line
     ]).then(async (res) =>{
         for (const book of res.documents) {

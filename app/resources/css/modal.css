@@ -2,7 +2,7 @@
 .modal {
     display: none;
     position: fixed;
-    z-index: 10;
+    z-index: 1010;
     width: 100vw;
     height: 100vh;
     position: fixed;

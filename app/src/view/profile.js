@@ -1,8 +1,9 @@
-import { database, storage } from "../appwrite.js";
+/* eslint-disable no-alert */
+import { database, storage, STORAGE_ID_AVATARS, DB_ID_USERS } from "../appwrite.js";
+import { getProfilePic } from "../services/users.js";
 
 export function loadProfile () {
-    console.log(window.user.userData.$id);
-    database.getDocument('631dc5d578112759fe25', window.user.userData.$id)
+    database.getDocument(DB_ID_USERS, window.user.userData.$id)
     .then(data => {
         const form = document.getElementById("profile-form");
 
@@ -13,13 +14,7 @@ export function loadProfile () {
     });
 
     const url = getProfilePic(window.user.userData.$id);
-    //const url = storage.getFileDownload('631dd36b0c511ff97f9f', window.user.userData.$id);
-    console.log(url.href);
     document.getElementById("profile-img").src = url.href + "&disableCache=" + String(Math.random());
-}
-
-export function getProfilePic(userID){
-    return storage.getFileDownload('631dd36b0c511ff97f9f', userID);
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -31,7 +26,7 @@ export function updateProfile (form) {
         description: form.description.value,
     };
 
-    database.updateDocument('631dc5d578112759fe25', window.user.userData.$id, data)
+    database.updateDocument(DB_ID_USERS, window.user.userData.$id, data)
     .then(() => {
         alert("Erfolgreich.");
     }, error => {
@@ -40,7 +35,7 @@ export function updateProfile (form) {
 
     if (form.file.files.length === 1) {
 
-        storage.createFile('631dd36b0c511ff97f9f', window.user.userData.$id, form.file.files[0])
+        storage.createFile(STORAGE_ID_AVATARS, window.user.userData.$id, form.file.files[0])
         .then(() => {
             alert("Profilbild hochgeladen.");
         }, (error) => {

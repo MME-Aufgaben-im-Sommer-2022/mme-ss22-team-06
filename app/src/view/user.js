@@ -1,4 +1,4 @@
-import {getProfilePic} from "../view/profile.js";
+import {getProfilePic} from "../services/users.js";
 
 export function getUserTemplate(user) {
 

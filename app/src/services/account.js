@@ -1,4 +1,5 @@
-import { client, database } from "../appwrite.js";
+/* eslint-disable no-alert */
+import { client, database, DB_ID_USERS } from "../appwrite.js";
 import showPage from "../pages.js";
 import { deleteMyBookList } from "./my-books.js";
 
@@ -20,7 +21,6 @@ class Account {
     return new Promise(re => {
       this.account.get()
       .then((userData) => {
-          console.log(userData);
           this.userData = userData;
           this.isLoggedIn = true;
           re(true);
@@ -48,7 +48,7 @@ class Account {
   // Register new user and auto login 
   create(email, firstname, lastname, password) {
 
-    this.account.create('unique()', email, password)
+    this.account.create("unique()", email, password)
     .then(async (response) => {
       
       this.signIn(email, password, async () => {
@@ -93,7 +93,7 @@ class Account {
 
   createUserDocument (userId, firstname, lastname) {
 
-    return database.createDocument('631dc5d578112759fe25', userId, {
+    return database.createDocument(DB_ID_USERS, userId, {
       firstname, lastname,
     }, ["role:member"] );
 
@@ -111,15 +111,15 @@ class Account {
     return this.account.updatePassword(newPassword, oldPassword);
   }
 
-  // FIXME: Deleting Account doesn't work with Appwrite
+  // FIXME: Deleting Account doesn"t work with Appwrite
   delete(callBack) {
     this.account.updateEmail("deleted"+String(Math.random())+"@deleted.com", prompt("Passwort")) // eslint-disable-line 
     .then(() => {
       // The MyBookList has to be deleted so the books
-      // don't show up in other users feeds anymore
+      // don"t show up in other users feeds anymore
       deleteMyBookList(() => {
         // FIXME: When status is updated to blocked the Cookie
-        // isn't deleted which creates problems so we just 
+        // isn"t deleted which creates problems so we just 
         // change the mail-address to a random address and
         // sign the user out
         // this.account.updateStatus(() => {
@@ -127,8 +127,7 @@ class Account {
         // });
         this.signOut();
       });
-    }, (e) => {
-      console.log(e);
+    }, () => {
       callBack(true);
     });
   }
