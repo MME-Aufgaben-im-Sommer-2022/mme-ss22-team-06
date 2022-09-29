@@ -1,0 +1,66 @@
+.chat-contacts {
+    list-style: none;
+    padding: 0;
+}
+
+.chat-contacts a {
+    display: flex;
+    width: 100%;
+    max-width: 250px;
+    cursor: pointer;
+    transition: 150ms;
+    color: #000;
+    align-items: center;
+}
+.chat-contacts a:hover {
+    padding-left: 5px;
+    background-color: rgba(125, 99, 217, 0.292);
+}
+.chat-contacts p {
+    margin: 0;
+    padding-left: 10px;
+}
+.chat-contacts .profile-img {
+    width: 45px;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    padding-left: 4px;
+    text-align: center;
+}
+
+.chat-contacts .profile-img img {
+    width: 100%;
+    text-align: center;
+    height: unset;
+    display: block;
+}
+
+.chat-contacts .active {
+    background-color: rgba(145, 128, 207, 0.292);;
+}
+
+.chat-messages {
+    max-height: 60vh;
+    overflow: auto;
+}
+
+.chat-messages ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    word-wrap: anywhere;
+}
+
+.chat-messages ul li {
+    background: #fff;
+    width: 60%;
+    padding: 5px;
+    margin: 5px 0;
+    font-size: 13px;
+}
+.chat-messages ul li.send {
+    background: #9ced9c;
+    margin: 5px auto;
+    margin-right: 0;
+}

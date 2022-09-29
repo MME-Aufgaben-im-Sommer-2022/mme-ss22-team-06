@@ -1,0 +1,30 @@
+<header>
+
+    <div class="navigation">
+        <a onclick="document.body.classList.toggle('sidebar-open');"><i class="fa fa-solid fa-bars"></i></a>
+    </div>
+    <div class="brand">
+        <div class="logo"><i class="fa fa-solid fa-book"></i></div>
+        <p>Book-Temple</p>
+    </div>
+
+    <div class="search">
+        <input type="text" placeholder="Suche ein Buch">
+    </div>
+
+    <div class="filter">
+          <label for="filters">Suche nach...</label>
+    <select name="filters" id="filters">
+        <option value="Titel">Titel</option>
+        <option value="Autor">Autor</option>
+        <option value="ISBN">ISBN</option>
+    </select>
+    </div>
+  
+
+    <div class="menu">
+        <ul>
+            <li><a onclick="window.user.signOut()" class="fa fa-sign-out"></a></li>
+        </ul>
+    </div>
+</header>

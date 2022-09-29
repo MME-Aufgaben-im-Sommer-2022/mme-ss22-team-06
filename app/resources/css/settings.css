@@ -1,0 +1,45 @@
+.main {
+    display: flex;
+    align-items: baseline;
+    gap: 1%;
+}
+
+.settings-list {
+    width: 50%;
+    margin: auto;
+}
+
+.settings-list h2{
+    background-color: blue;
+}
+
+.settings-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 5px;
+}
+
+.settings-list li a {
+    flex-grow: 1;
+    background: white;
+    padding: 5px;
+}
+
+.settings-list li div {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    min-width: 25px;
+    max-width: 25px;
+    min-height: 25px;    
+}
+
+
+
+
+
+
+
+
+
+
