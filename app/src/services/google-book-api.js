@@ -1,4 +1,3 @@
-
 const API_KEY = "AIzaSyD78ZjX5C5By3xzU4xjyfJanOA4tiFZaeQ";
 
 // searches with the Google-Book-API for the
@@ -7,9 +6,6 @@ export function searchBooks (query, callBack) {
 
     fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&key=${API_KEY}`)
     .then(e => e.json())
-    .then(callBack)
-    .catch((e) => {
-        console.log(e);
-    });
+    .then(callBack);
 
 }

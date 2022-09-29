@@ -1,0 +1,88 @@
+<div class="modal" id="user-modal" style="z-index: 10000;">
+
+    <div class="modal-body container">
+        <div class="close" onclick="document.getElementById('user-modal').classList.remove('open');"><i class="fa fa-times"></i></div>
+
+        <h2>Benutzer: <span id="um-name"></span></h2>
+
+        <div class="profile-img">
+            <img id="um-profile-img" src="" alt="Kein Profilbild vorhanden">
+        </div>
+
+        <p id="um-description"></p>
+
+        <h3>Wunschliste des Benutzers</h3>
+        <div class="book-list">
+            <ul id="um-wishlist"></ul>
+        </div>
+
+        <h3>Bücher des Benutzers</h3>
+        <div class="book-list">
+            <ul id="um-owned-list"></ul>
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module">
+import {getProfilePic, getUserByID} from "./src/services/users.js";
+import {loadMyBookList} from "./src/services/my-books.js";
+import {loadWishlist} from "./src/services/wishlist.js";
+import {searchBooks} from "./src/services/google-book-api.js";
+import {getBookTemplate} from "./src/view/book.js";
+
+
+window.openUserModal = (userID) => {
+
+    document.getElementById('user-modal').classList.add('open');
+
+    document.getElementById("um-profile-img").src = getProfilePic(userID);
+    getUserByID(userID).then(userData => {
+
+        document.getElementById("um-name").innerText = userData.firstname + " " + userData.lastname;
+        document.getElementById("um-description").innerText = userData.description;
+
+    })
+
+    loadWishlist().then(e => {
+
+        const ownedListEl = document.getElementById("um-wishlist");
+        ownedListEl.innerHTML = "";
+
+        e.documents.forEach(book => {
+
+            searchBooks("isbn:"+book.isbn, (result) => {
+
+                let bookItem = result.items[0].volumeInfo;
+                const bookEl = getBookTemplate(bookItem);
+                ownedListEl.append(bookEl);
+
+            });
+
+    });
+
+    });
+
+    loadMyBookList(userID).then(e => {
+
+        const ownedListEl = document.getElementById("um-owned-list");
+        ownedListEl.innerHTML = "";
+
+        e.documents.forEach(book => {
+
+            searchBooks("isbn:"+book.isbn, (result) => {
+
+                let bookItem = result.items[0].volumeInfo;
+                const bookEl = getBookTemplate(bookItem);
+                ownedListEl.append(bookEl);
+
+            });
+
+        });
+
+    });
+
+}
+
+</script>

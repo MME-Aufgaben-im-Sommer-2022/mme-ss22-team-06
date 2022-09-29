@@ -5,7 +5,7 @@ function init() {
   
   // Listens for page changes
   // Then loads the current page from hash
-  window.addEventListener('hashchange', () => {
+  window.addEventListener("hashchange", () => {
     showPage(location.hash.slice(1));
   });
 
@@ -21,7 +21,7 @@ function init() {
     }
     // Uses the hash of the URL if not existing the start page is used 
     showPage(location.hash.slice(1) || startPage);
-  }).catch(console.log);
+  });
 
 }
 

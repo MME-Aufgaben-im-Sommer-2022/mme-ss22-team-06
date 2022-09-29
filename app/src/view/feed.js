@@ -2,10 +2,10 @@ import {searchBooks} from "../services/google-book-api.js";
 import {loadFeedList} from "../services/feed.js";
 import {getBookTemplate} from "../view/book.js";
 import {loadUsersByISBN} from "../services/users.js";
-import {database} from "../appwrite.js";
+import {database, DB_ID_USERS} from "../appwrite.js";
 import {getUserTemplate} from "../view/user.js";
 
-function openModalMoreInformation (isbn) {
+function openModalMoreInformation (isbn, bookTitle) {
 
     document.getElementById("book-modal").classList.add("open");    
 
@@ -15,7 +15,7 @@ function openModalMoreInformation (isbn) {
             return element.user_id;
         });
 
-         database.listDocuments("631dc5d578112759fe25", [
+         database.listDocuments(DB_ID_USERS, [
             Appwrite.Query.equal("$id", [userIDs]), // eslint-disable-line
         ]).then(users => {
 
@@ -30,7 +30,10 @@ function openModalMoreInformation (isbn) {
                 let userEl = getUserTemplate(user);
                 userListEl.append(userEl);
                 userEl.querySelector(".actions").innerHTML =
-                    `<button class='btn' onclick='sendMessage(${user.$id})'><i class='fa fa-envelope' aria-hidden='true'></i></button>`;
+                    `<button class='btn' onclick='sendMessageToUser("${user.$id}", "${bookTitle.replaceAll("'", " ")}")'><i class='fa fa-envelope' aria-hidden='true'></i></button>`;
+
+                userEl.querySelector(".actions").innerHTML +=
+                    `<button class='btn' onclick='window.openUserModal("${user.$id}")'><i class='fa fa-info' aria-hidden='true'></i></button>`;
                 
             }));
 
@@ -39,9 +42,9 @@ function openModalMoreInformation (isbn) {
 
 }
 
-export function loadFeedData () {
+export function loadFeedData (orderBy, orderType) {
 
-    loadFeedList().then(e => {
+    loadFeedList(orderBy, orderType).then(e => {
 
         const userlListEl = document.getElementById("book-feed-list");
         userlListEl.innerHTML = "";
@@ -69,13 +72,13 @@ export function loadFeedData () {
                     if (event.target.tagName === "I" || event.target.tagName === "BUTTON") {
                         return;
                     }
-                    openModalMoreInformation(isbn);
+                    openModalMoreInformation(isbn, bookItem.title);
                 });
 
             });
 
         });
 
-    }, console.error);
+    });
     
 }

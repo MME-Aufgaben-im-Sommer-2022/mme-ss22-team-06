@@ -42,7 +42,7 @@
         "receiver_user_id": 0,
         "message_body": "",
         "state": "new, read",
-        "action": "request, rate",
+        "action": "request, rate, message",
 
         "permissions": "only sender and receiver"
     },

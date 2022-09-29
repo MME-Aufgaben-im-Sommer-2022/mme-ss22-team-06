@@ -61,6 +61,10 @@ body.sidebar-open {
     --sidebar-width: 200px;
 }
 
+ul {
+    padding: 0;
+}
+
 /*Main content*/
 
 .main {
@@ -68,6 +72,8 @@ body.sidebar-open {
     flex-direction: column;
     margin-left: var(--sidebar-width);
     padding: 25px;
+    padding-top: 80px;
+    overflow: auto;
 }
 
 .loader-container {

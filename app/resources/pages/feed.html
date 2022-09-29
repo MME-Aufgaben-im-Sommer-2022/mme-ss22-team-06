@@ -10,17 +10,20 @@
     </div>
     <div class="container container-small">
         <h2>Sortieren nach...</h2>
-        <ul class="btn-list">
-            <li><button class="btn">Alphabetisch</button></li>
-            <li><button class="btn">Alt > Neu</button></li>
-            <li><button class="btn">Neu > Alt</button></li>
-            <li><button class="btn">Meist getauscht</button></li>
-        </ul>
+        <select id="orderBy" onchange="window.loadFeedDataHandler();">
+            <option value="createdAt"  selected>Erstelldatum</option>
+            <option value="trend">Verfügbarkeit</option>
+        </select>
+        <select id="orderType"  onchange="window.loadFeedDataHandler();">
+            <option value="DESC" selected>A->B, Neu->Alt</option>
+            <option value="ASC">B->A, Alt->Neu</option>
+        </select>
     </div>
 </div>
 
 <div data-include="book"></div>
 <div data-include="user"></div>
+<div data-include="modal-user"></div>
 
 <div id="book-modal" class="modal">
 
@@ -29,17 +32,7 @@
         <h2>Folgende Benutzer bieten das Buch an:</h2>
 
         <div class="user-list">
-            <ul id="user-entry-list">
-                <!-- <li class="user-entry"> 
-                    <i class="fa fa-user"></i>
-                    <div>UserABC</div>
-                </li>
-
-                <li class="user-entry"> 
-                    <i class="fa fa-user"></i>
-                    <div>UserABC</div>
-                </li> -->
-            </ul>
+            <ul id="user-entry-list"></ul>
         </div>
     </div>
 </div>
@@ -47,10 +40,27 @@
 <script type="module">
 import {addBookToMyWishlist} from "./src/services/wishlist.js"
 import {loadFeedData} from "./src/view/feed.js"
-loadFeedData();
+import {sendMessage} from "./src/services/request.js"
+
+window.loadFeedDataHandler = () => {
+
+    const orderBy = document.getElementById("orderBy").value,
+        orderType = document.getElementById("orderType").value;
+
+    loadFeedData(orderBy, orderType);
+
+}
+
+window.loadFeedDataHandler();
+
 window.addBookToMyWishlist = addBookToMyWishlist;
-window.sendMessage = (userId) => {
-    console.log("Go to request", userId);
-    location.hash = "request";
+window.sendMessageToUser = (userId, bookTitle) => {
+    let message = prompt("Deine Nachricht an den User", "Hallo, ich hätte Interesse an " + bookTitle);
+    if (message === null) {
+        return;
+    }
+    sendMessage(userId, message, "request").then(() => {
+        location.hash = "request/" + userId;
+    });
 }
 </script>

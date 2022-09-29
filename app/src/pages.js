@@ -1,4 +1,3 @@
-import feedView from "./view/feedView.js";
 
 // Available pages with options
 const PAGES = {
@@ -58,13 +57,16 @@ function include(includeEl) {
 
 function showPage(pageId) {
 
+    // eslint-disable-next-line no-param-reassign
+    pageId = pageId.split("/")[0]; // request/USERID -> ignore
+
     // Checks if pageId is correct
     if (!PAGES[pageId]) {
         location.hash = "feed";
         return;
     }
 
-    if (location.hash.slice(1) !== pageId) {
+    if (location.hash.slice(1).split("/")[0] !== pageId) {
         location.hash = pageId;
         return;
     }
@@ -101,13 +103,6 @@ function showPage(pageId) {
             pageEl.querySelectorAll("[data-include]").forEach(el => {
                 include(el);
             });
-        })
-        .then(() => {
-            //extra scripts should be executed here:
-            if (pageId == "feed") {
-                let feed = new feedView();
-                feed.onPageLoaded();
-            }
         });
 
 }

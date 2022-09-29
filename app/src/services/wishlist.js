@@ -1,13 +1,15 @@
+/* eslint-disable no-alert */
 import {database, DB_ID_WISHLIST} from "../appwrite.js";
 
-export function loadWishlist () {
+export function loadWishlist (userID = window.user.userData.$id) {
     return database.listDocuments(DB_ID_WISHLIST, [
-        Appwrite.Query.equal("user_id", [window.user.userData.$id]),  // eslint-disable-line
+        Appwrite.Query.equal("user_id", [userID]),  // eslint-disable-line
     ]);
 }
 
 export function addBookToMyWishlist(isbn) {
     database.createDocument(DB_ID_WISHLIST, "unique()", {
+        // eslint-disable-next-line camelcase
         user_id: window.user.userData.$id, isbn: String(isbn),
     }, ["role:member"])
     .then(() => {
@@ -17,8 +19,8 @@ export function addBookToMyWishlist(isbn) {
     });
 }
 
-export function removeBookFromWishlist(book_id) {
+export function removeBookFromWishlist(bookId) {
 
-    return database.deleteDocument(DB_ID_WISHLIST, book_id);
+    return database.deleteDocument(DB_ID_WISHLIST, bookId);
 
 }
