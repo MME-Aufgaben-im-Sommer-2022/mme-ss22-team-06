@@ -1,0 +1,22 @@
+<div class="modal" id="new-book-modal">
+
+    <div class="modal-body container">
+        <div class="close" onclick="document.getElementById('new-book-modal').classList.remove('open');"><i class="fa fa-times"></i></div>
+
+        <h2>Buch suchen</h2>
+
+        <input placeholder="Suche nach einem Buch" type="text" id="input-search-book" />
+        <div class="book-list">
+            <ul id="book-search-results"></ul>
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module">
+import {searchBooksModal} from "./src/view/book.js";
+document.getElementById("input-search-book").addEventListener("keyup", (e) => {
+    searchBooksModal(e.target, window.searchModifyFunction);
+});
+</script>

@@ -1,0 +1,42 @@
+<div data-include="header"></div>
+<div data-include="sidebar"></div>
+
+
+<div class="main">
+    <div class="container">
+        <h2>Bücher in deinem Besitz</h2>
+        <button onclick="document.getElementById('new-book-modal').classList.add('open');">Neues Buch hinzufügen</button>
+        <div class="book-list">
+            <ul id="owned-book-list"></ul>
+        </div>
+    </div>
+</div>
+
+<div data-include="modal-book-search"></div>
+
+<div data-include="book"></div>
+
+<script type="module">
+import {myBooksLoadUserData} from "./src/view/my-books.js"
+import {addBookToMyBookList, removeBookFromMyBookList} from "./src/services/my-books.js";
+
+myBooksLoadUserData();
+
+window.searchModifyFunction = (bookEl, isbn) => {
+    bookEl.querySelector(".actions").innerHTML = 
+            "<button class='btn' onclick='addBookToMyBookListHandler(\""+isbn+"\")'><i class='fa fa-plus' aria-hidden='true'></i></button>";
+}
+
+window.addBookToMyBookListHandler = (isbn) => {
+    document.getElementById('new-book-modal').classList.remove('open');
+    addBookToMyBookList(isbn).then(() => {
+        myBooksLoadUserData();
+    });
+};
+
+window.removeBookFromMyBookListHandler = (book_id, isbn) => {
+    removeBookFromMyBookList(book_id, isbn).then(() => {
+        myBooksLoadUserData();
+    });
+};
+</script>

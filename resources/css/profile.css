@@ -1,0 +1,8 @@
+.profile-list li{
+    padding: 5px;
+    list-style-type: none;
+}
+.profile-img img {
+    width: 100px;
+    height: 100px;    
+}

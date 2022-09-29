@@ -1,0 +1,43 @@
+<div data-include="header"></div>
+<div data-include="sidebar"></div>
+
+<div class="main">
+
+    <div class="container">
+
+        <h2>Dein öffentliches Profil</h2>
+
+        <form id="profile-form" onsubmit="return window.updateProfile(this);" >
+            <ul class="profile-list">
+                <li class="input-group">
+                    <div class="profile-img">
+                        <img id="profile-img" src="" alt="Kein Profilbild vorhanden">
+                    </div>
+                    <input type="file" name="avatar" id="file" accept="image/*">
+                    <span class="desc">Erlaubt sind nur .png und .jpg Dateien.</span>
+                </li>
+                <li class="input-group">
+                    <p>Vorname</p>
+                    <input type="text" name="firstname" required>
+                </li>
+                <li>
+                    <p>Nachname</p>
+                    <input type="text" name="lastname" required>
+                </li>
+                <li  class="input-group">
+                    <p>Profilbeschreibung (max. 250 Zeichen)</p>
+                    <textarea rows="2"  name="description" placeholder="Ich mag Fantasy und Drama."></textarea>
+                </li>
+            </ul>
+            <button class="btn">Speichern</button>
+        </form>
+
+    </div>
+
+</div>
+
+<script type="module">
+    import {loadProfile, updateProfile} from "./src/view/profile.js"
+    loadProfile();
+    window.updateProfile = updateProfile;
+</script>

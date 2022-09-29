@@ -1,0 +1,86 @@
+<div data-include="header"></div>
+<div data-include="sidebar"></div>
+<div data-include="modal-user"></div>
+<div data-include="book"></div>
+
+<div class="main container-row">
+    <div class="container container-small">
+        <h2>Personen</h2>
+        <ul class="chat-contacts" id="chat-contacts">
+        </ul>
+    </div>
+    <div class="container chat-window hidden" id="chat-window" data-userid="">
+        <h2>Nachrichten mit <span id="current-chat-username"></span></h2>
+        <div class="chat-messages">
+            <ul id="chat-messages"></ul>
+        </div>
+        <form onsubmit="return sendNewMessage(this.message);">
+            <input placeholder="Deine Nachricht" name="message" type="text" />
+            <button type="submit">Senden</button>
+        </form>
+    </div>
+</div>
+
+
+<template id="chat-messages-li">
+    <li>
+        <p class="message"></p>
+    </li>
+</template>
+
+<template id="chat-contact-li">
+    <li>
+        <a data-userid="">
+            <div class="profile-img">
+                <img src="" alt="-" />
+            </div>
+            <p class="name">Wird geladen...</p>
+        </a>
+        <button onclick="window.openUserModal(this.parentElement.dataset.userid)">Mehr Infos</button>
+    </li>
+</template>
+
+
+<script type="module">
+import {loadContactList, loadMessages} from "./src/view/request.js"
+import {sendMessage} from "./src/services/request.js"
+loadContactList();
+
+const currentChatUserId = location.hash.split("/");
+if (currentChatUserId.length > 1) {
+    document.getElementById("chat-window").classList.remove("hidden");
+    loadMessages(currentChatUserId[1]);
+
+    if (window.requestIntervalID) {
+        clearInterval(window.requestIntervalID);
+    }
+
+    window.requestIntervalID = setInterval(() => {
+
+        if (location.hash.indexOf("request") === -1) {
+            clearInterval(window.requestIntervalID);
+            return;
+        }
+
+        const currentChatUserId = location.hash.split("/");
+        loadMessages(currentChatUserId[1]);
+
+    }, 5000);
+
+
+}
+
+window.sendNewMessage = (messageEl) => {
+
+    const currentChatUserId = location.hash.split("/");
+
+    sendMessage(currentChatUserId[1], messageEl.value, "message").then(() => {
+        loadMessages(currentChatUserId[1]);
+    })
+    messageEl.value = "";
+    return false;
+
+}
+
+
+</script>
