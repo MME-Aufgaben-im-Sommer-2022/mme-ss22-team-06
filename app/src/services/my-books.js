@@ -24,6 +24,7 @@ export function addBookToMyBookList (isbn) {
 
 }
 
+
 export function changeBookStateToTraded (bookId, isbn) {
 
     // remove from statistics
@@ -35,6 +36,7 @@ export function changeBookStateToTraded (bookId, isbn) {
             traded: entry.traded+1,
         });
     });
+
 
     return database.updateDocument(DB_ID_BOOKS, bookId, {
         // eslint-disable-next-line camelcase
