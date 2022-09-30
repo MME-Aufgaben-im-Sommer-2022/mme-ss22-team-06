@@ -24,7 +24,6 @@ export function addBookToMyBookList (isbn) {
 
 }
 
-
 export function changeBookStateToTraded (bookId, isbn) {
 
     // remove from statistics
