@@ -8,7 +8,12 @@ Dieses Repository bildet die Grundlage für Ihre Projektarbeit und wurde über d
 
 Unsere Anwendung bietet die Möglichkeit die auf der Plattform verfügbaren Bücher in einer Liste darzustellen, eigene Wunschlisten zu erstellen und die Wunschlisten und Profile von den anderen Nutzern aufzufrufen. Und somit kann der Nutzer Tauschvorgänge durchführen.
 Unsere Zielgruppe sind hauptsächlich Leute die gerne und viel Lesen. Dabei auf Umwelt und Geldbeutel zu achten ist einfach nur eine positive Nebensache, denn es geht hauptsächlich um die Freude am Lesen. In Hinblick auf die Nachhaltigkeit trägt unsere Anwendung zur Umwelt- und Resourcenschonung bei,
-da gebrauchte Bücher wiederverwendet werden und dies den Druck neuer Bücher reduzieren kann. Zudem können auch die Ausgaben der einzelnen Personen, durch den Tausch statt den Kauf von Büchern, gesenkt werden. Die Bücher-Tausch Plattform erlaubt somit eine gezielte und somit auch zeitsparende Suche nach den gewünschten Büchern. [Release](https://book-temple.software-engineering.education/)
+da gebrauchte Bücher wiederverwendet werden und dies den Druck neuer Bücher reduzieren kann. Zudem können auch die Ausgaben der einzelnen Personen, durch den Tausch statt den Kauf von Büchern, gesenkt werden. Die Bücher-Tausch Plattform erlaubt somit eine gezielte und somit auch zeitsparende Suche nach den gewünschten Büchern. 
+
+[Release](https://book-temple.software-engineering.education/)
+
+
+[UserGuide BookTemple](https://uniregensburg-my.sharepoint.com/:v:/g/personal/all07202_ads_uni-regensburg_de/EVEdCqwOr6RIpSnxafIVmJ4BYzhOtVPnyRMsYHng7YfZVQ?e=fctJrq)
 
 ## Beschreibung & Anleitung
 ### Login/Registrierung
