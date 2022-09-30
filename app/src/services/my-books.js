@@ -24,6 +24,27 @@ export function addBookToMyBookList (isbn) {
 
 }
 
+
+export function changeBookStateToTraded (bookId, isbn) {
+
+    // remove from statistics
+    database.getDocument(DB_ID_STATISTICS, isbn)
+    .then((entry) => {
+        // count available down
+        database.updateDocument(DB_ID_STATISTICS, isbn, {
+            available: entry.available-1,
+            traded: entry.traded+1,
+        });
+    });
+
+
+    return database.updateDocument(DB_ID_BOOKS, bookId, {
+        // eslint-disable-next-line camelcase
+        book_state: "traded",
+    });
+
+}
+
 export function removeBookFromMyBookList (bookId, isbn) {
 
     // remove from statistics
@@ -36,6 +57,15 @@ export function removeBookFromMyBookList (bookId, isbn) {
     });
 
     return database.deleteDocument(DB_ID_BOOKS, bookId);
+
+}
+
+export function loadTradedList (userID = window.user.userData.$id) {
+
+    return database.listDocuments(DB_ID_BOOKS, [
+        Appwrite.Query.equal("user_id", [userID]),  // eslint-disable-line
+        Appwrite.Query.equal("book_state", ["traded"]),  // eslint-disable-line
+    ]);
 
 }
 
