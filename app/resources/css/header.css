@@ -49,6 +49,7 @@ header .brand p {
 }
 
 .menu {
+    margin: 0 0 0 auto;
     padding-right: 10px;
 }
 
