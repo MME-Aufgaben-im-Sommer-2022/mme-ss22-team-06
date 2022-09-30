@@ -70,5 +70,4 @@ Bei den Einstellungen hat der Nutzer die Möglichkeit Profil zu bearbeiten, das 
 | ------------------ |:---------------------------------------:| ------------:|-------:| --------------------------|
 | Alisa Friedmann    | Alisa.Friedmann@stud.uni-regensburg.de  | alisa-fr     |![AlisaFriedmann](https://user-images.githubusercontent.com/82600042/193230416-55810649-2af2-40f3-a1ca-ba6a1667d3bc.jpg)                                                                     | Appwrite                  |
 | Elisabeth Philipp  | Elisabeth.Philipp@stud.uni-regensburg.de| TrashCoon    |![ElisabethPhilipp](https://user-images.githubusercontent.com/82600042/193230516-d5ca9ad0-3015-4b71-884c-d410fdfbdb08.JPG)                                                                   | UI                        |
-| Lianna Aleksanyan  | Lianna.Aleksanyan@stud.uni-regensburg.de| liannaaleks  |![LiannaAleksanyan](https://user-images.githubusercontent.com/82600042/193230639-54145f6f-64d2-4ffa-ad01-31427bff4438.JPG)
-| API                       |
+| Lianna Aleksanyan  | Lianna.Aleksanyan@stud.uni-regensburg.de| liannaaleks  |![LiannaAleksanyan](https://user-images.githubusercontent.com/82600042/193230639-54145f6f-64d2-4ffa-ad01-31427bff4438.JPG)                                                                   | API                       |
